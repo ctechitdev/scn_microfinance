@@ -89,6 +89,52 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "depart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1500/api/depart",
+					"host": [
+						"localhost"
+					],
+					"port": "1500",
+					"path": [
+						"api",
+						"depart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "provice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1500/api/provice",
+					"host": [
+						"localhost"
+					],
+					"port": "1500",
+					"path": [
+						"api",
+						"provice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "district",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }
