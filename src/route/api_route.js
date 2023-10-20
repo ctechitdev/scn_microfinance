@@ -9,6 +9,7 @@ const router = Router();
 const login_controller = require('../controllers/function/login_controller');
 const register_controller = require('../controllers/function/register_controller');
 const update_user_controller = require('../controllers/function/user_update_controller');
+const dropdown_controller = require('../controllers/function/dropdown_controller');
 
 
 
@@ -16,6 +17,11 @@ const update_user_controller = require('../controllers/function/user_update_cont
 router.post('/login', login_controller.login);
 router.post('/register', register_controller.register_user);
 router.post('/update_user',verifyToken, update_user_controller.update_user);
+
+//dropdown data
+router.get('/depart',verifyToken, dropdown_controller.show_depart);
+router.get('/provice',verifyToken, dropdown_controller.show_provice);
+router.post('/district',verifyToken, dropdown_controller.show_distric);
 
 
 
