@@ -2,22 +2,38 @@ const request = require("express/lib/request");
 const connected = require('../../../setting/connect');
 const queries = require('../../queries/function/user_update_query');
 
+const jwt = require('jsonwebtoken');
+ 
+const secretkey = "CtecMicrofinance";
+
 const update_user = (request, respond) => {
 
-    const { full_name, role,depart, user_status, user_name } = request.body;
+    const { full_name, role,depart, user_status, user_id } = request.body;
 
+        jwt.verify(request.token, secretkey, (err, rtoken)=>{
+            if(err){
+                respond.status(200).json("token expire");
+            }else{
 
-            connected.query(queries.update_user,[full_name, role,depart, user_status, user_name],(error, results)=>{
+                const id = rtoken.id;
+
+                connected.query(queries.update_user,[full_name, role,depart, user_status, id],(error, results)=>{
                 
-                if(error) throw error;
-                if(results){
-                    respond.status(200).json("ອັບເດດສຳເລັດ");
-                }else{
-                    respond.status(200).json("ອັບເດດບໍ່ໄດ້");
-                }
-                
+                    if(error) throw error;
+                    if(results){
+                        respond.status(200).json("ອັບເດດສຳເລັດ");
+                    }else{
+                        respond.status(200).json("ອັບເດດບໍ່ໄດ້");
+                    }
+                    
+    
+                });
 
-            });
+            }
+        })
+
+
+            
         }
 
 module.exports = {

@@ -2,6 +2,9 @@ const request = require("express/lib/request");
 const connected = require('../../../setting/connect');
 const queries = require('../../queries/function/login_query');
 const { response } = require("express");
+const jwt = require('jsonwebtoken');
+ 
+const secretkey = "CtecMicrofinance";
 
 const login = (request , respond) => {
 
@@ -17,7 +20,9 @@ const login = (request , respond) => {
       const users = results[0];
  //  console.log(results);
 
-    respond.status(200).json(users);
+      const accessToken = jwt.sign({ id: users.user_id }, secretkey);
+
+    respond.status(200).json([{accessToken}]);
 
     }else{
 
