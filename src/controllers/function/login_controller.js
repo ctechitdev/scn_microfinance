@@ -20,9 +20,10 @@ const login = (request , respond) => {
       const users = results[0];
  //  console.log(results);
 
-      const accessToken = jwt.sign({ id: users.user_id }, secretkey);
+      const accessToken = jwt.sign({ id: users.user_id, depart_id: users.depart_id}, secretkey);
 
-    respond.status(200).json([{accessToken}]);
+      respond.json({'resultCode':'OK','depart_id' : users.depart_id,accessToken});
+
 
     }else{
 

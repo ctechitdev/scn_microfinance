@@ -20,7 +20,14 @@ const show_depart = (request, respond) => {
                 
                     if(error) throw error;
                     if(results){
-                        respond.status(200).json(results);
+                
+                        respond.json({resualt_code:'ok',
+                        depart_id : results[0].depart_id,
+                        depart_name : results[0].depart_name
+
+                    })
+                        
+
                     }else{
                         respond.status(200).json("ບໍ່ພົບຂໍ້ມູນ");
                     }
@@ -75,7 +82,11 @@ const show_distric = (request, respond) => {
             
                 if(error) throw error;
                 if(results){
-                    respond.status(200).json(results);
+                    
+                    //respond.json(results);
+                   
+
+                    respond.end(JSON.stringify(results, null, 2));
                 }else{
                     respond.status(200).json("ບໍ່ພົບຂໍ້ມູນ");
                 }
