@@ -26,8 +26,8 @@ const login = (request , respond) => {
 
 
     }else{
-
-      respond.status(200).send("ໍຊື່ຜູ້ໃຊ້ຫຼືລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ");
+ 
+      respond.json({'resultCode':'Error' });
 
     }
 
