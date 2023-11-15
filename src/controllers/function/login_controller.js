@@ -22,7 +22,7 @@ const login = (request , respond) => {
 
       const accessToken = jwt.sign({ id: users.user_id, depart_id: users.depart_id}, secretkey);
 
-      respond.json({'resultCode':'OK','depart_id' : users.depart_id,'full_name': users.full_name,'role_id' : users.role_id,accessToken});
+      respond.json({'resultCode':'OK','id_users' : users.user_id,'depart_id' : users.depart_id,'full_name': users.full_name,'role_id' : users.role_id,accessToken});
 
 
     }else{
