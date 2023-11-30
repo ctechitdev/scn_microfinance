@@ -23,7 +23,7 @@ const drop_down_depart = (request, respond) => {
                     if(error) throw error;
                     if(results){
                 
-                       respond.status(200).json({resualt_code:'ok', results  });
+                       respond.status(200).json({resualt_code:'ok', data_depart: results  });
                         
 
                     }else{
