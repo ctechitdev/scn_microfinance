@@ -1,6 +1,6 @@
 const request = require("express/lib/request");
 const connected = require('../../../setting/connect');
-const queries = require('../../queries/function/user_update_query');
+const queries = require('./user_update_query');
 
 const jwt = require('jsonwebtoken');
  

@@ -1,6 +1,6 @@
-const request = require("express/lib/request");
-const connected = require('../../../setting/connect');
-const queries = require('../../queries/function/dropdown_query');
+const request = require("express/lib/request"); 
+const connected = require("../../../setting/connect");
+const queries = require("./dropdown_depart_query");
 
 const jwt = require('jsonwebtoken');
  
@@ -8,7 +8,7 @@ const secretkey = "CtecMicrofinance";
 
 
 //show depart
-const show_depart = (request, respond) => {
+const drop_down_depart = (request, respond) => {
 
 
         jwt.verify(request.token, secretkey, (err, rtoken)=>{
@@ -16,16 +16,14 @@ const show_depart = (request, respond) => {
                 respond.status(200).json("token expire");
             }else{
 
+
+                
                 connected.query(queries.show_depart,(error, results)=>{
                 
                     if(error) throw error;
                     if(results){
                 
-                        respond.json({resualt_code:'ok',
-                        depart_id : results[0].depart_id,
-                        depart_name : results[0].depart_name
-
-                    })
+                       respond.status(200).json({resualt_code:'ok', results  });
                         
 
                     }else{
@@ -99,7 +97,7 @@ const show_distric = (request, respond) => {
 }
 
 module.exports = {
-    show_depart,
+    drop_down_depart,
     show_provice,
     show_distric
 }
