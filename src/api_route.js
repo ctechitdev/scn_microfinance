@@ -16,7 +16,7 @@ router.post('/register', register_controller.register_user);
 //dropdown 
 //--- depart
 const drop_down_depart_controller = require("./dropdown/depart/dropdown_depart_controller")
-router.post('/dropdown/province',verifyToken,drop_down_depart_controller.drop_down_depart)
+router.post('/dropdown/depart',verifyToken,drop_down_depart_controller.drop_down_depart)
 
 
 // route list function
