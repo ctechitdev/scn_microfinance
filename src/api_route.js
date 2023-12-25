@@ -18,7 +18,13 @@ router.post('/register', register_controller.register_user);
 const drop_down_depart_controller = require("./dropdown/depart/dropdown_depart_controller")
 router.post('/dropdown/depart',verifyToken,drop_down_depart_controller.drop_down_depart)
 
-
+// depart
+const depart_controller = require("./depart/depart_controller")
+router.post('/depart/add',depart_controller.create_depart)
+router.post('/depart/get',depart_controller.get_depart)
+router.post('/depart/id',depart_controller.get_departById)
+router.put('/depart/update', depart_controller.update_depart)
+router.delete('/depart/delete', depart_controller.delete_depart)
 // route list function
 
 
