@@ -81,7 +81,7 @@ const delete_depart = (request, response) => {
   connected.query(queries.get_departById, [depart_id], (error, results) =>{
     const noPeopleFound = !results.length;
         if (noPeopleFound) {
-          response.json({ resultCode: "ບໍ່ພົບພະແນກ ບໍ່ສາມາດແກ້ໄຂໄດ້" });
+          response.json({ resultCode: "ບໍ່ພົບພະແນກ ບໍ່ສາມາດລົບໄດ້" });
         }
         connected.query(queries.delete_depart, [depart_id], (error, results)=>{
           if(error) throw error;
