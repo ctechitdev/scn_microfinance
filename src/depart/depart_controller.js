@@ -76,22 +76,19 @@ const update_depart = (request, response) => {
 // delete depart 
 // ແກ້ໂຕນິ
 
-const delete_depart = (request, response) =>{
-  const {depart_id} = parseInt(request.params.depart_id);
-  connected.query(queries.get_departById, [depart_id], (error, results)=>{
-    if (error)throw error;
-    if (!results.length) {
-      response.json({ resultCode: "ບໍ່ພົບພະແນກ ບໍ່ສາມາດລົບໄດ້" });
-     
-        
-    }
+const delete_depart = (request, response) => {
+  const { depart_id} = request.body;
+  connected.query(queries.get_departById, [depart_id], (error, results) =>{
+    const noPeopleFound = !results.length;
+        if (noPeopleFound) {
+          response.json({ resultCode: "ບໍ່ພົບພະແນກ ບໍ່ສາມາດແກ້ໄຂໄດ້" });
+        }
+        connected.query(queries.delete_depart, [depart_id], (error, results)=>{
+          if(error) throw error;
+          response.json({ resultCode: "ລົບພະແນກສຳເລັດ" });
+        })
+  })
 
-      connected.query(queries.delete_depart, [depart_id], (error, results)=>{
-        if(error) throw error;
-        response.json({ resultCode: "ລົບພະແນກສຳເລັດ" });
-    })
-    })
-   
 }
 
 
