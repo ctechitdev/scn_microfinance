@@ -2,6 +2,7 @@ const request = require("express/lib/request");
 const connected = require("../../setting/connect");
 const queries = require("./depart_query");
 const { response } = require("express");
+const { connect } = require("../api_route");
 
 // Create depart
 const create_depart = (request, respond) => {
@@ -59,42 +60,38 @@ const get_departById = (request, response) => {
 
 // update depart
 const update_depart = (request, response) => {
-  const { depart_id, depart_name} = request.body;
-  connected.query(queries.get_departById, [depart_id], (error, results) =>{
+  const { depart_id, depart_name } = request.body;
+  connected.query(queries.get_departById, [depart_id], (error, results) => {
     const noPeopleFound = !results.length;
-        if (noPeopleFound) {
-          response.json({ resultCode: "ບໍ່ພົບພະແນກ ບໍ່ສາມາດແກ້ໄຂໄດ້" });
-        }
-        connected.query(queries.update_depart, [depart_name,depart_id], (error, results)=>{
-          if(error) throw error;
-          response.json({ resultCode: "ແກ້ໄຂພະແນກສຳເລັດ" });
-        })
+    if (noPeopleFound) {
+      response.json({ resultCode: "ບໍ່ພົບພະແນກ ບໍ່ສາມາດແກ້ໄຂໄດ້" });
+    }
+    connected.query(queries.update_depart, [depart_name, depart_id], (error, results) => {
+      if (error) throw error;
+      response.json({ resultCode: "ແກ້ໄຂພະແນກສຳເລັດ" });
+    })
   })
 
 }
 
 // delete depart 
-// ແກ້ໂຕນິ
-
 const delete_depart = (request, response) => {
-  const { depart_id} = request.body;
-  connected.query(queries.get_departById, [depart_id], (error, results) =>{
-    const noPeopleFound = !results.length;
-        if (noPeopleFound) {
-          response.json({ resultCode: "ບໍ່ພົບພະແນກ ບໍ່ສາມາດລົບໄດ້" });
-        }
-        connected.query(queries.delete_depart, [depart_id], (error, results)=>{
-          if(error) throw error;
-          response.json({ resultCode: "ລົບພະແນກສຳເລັດ" });
-        })
+  const { depart_id } = request.body;
+  connected.query(queries.get_departById, [depart_id], (error, results) => {
+    const checkUserInDepart = queries.check_departInUser;
+    if (checkUserInDepart) {
+      if (error) throw error;
+      response.json({ resultCode: "ບໍ່ສາມາດລົບພະແນກໄດ້" });
+    }
+    else {
+      connected.query(queries.delete_depart, [depart_id], (error, results) => {
+        if (error) throw error;
+        response.json({ resultCode: "ລົບພະແນກສຳເລັດ" });
+      });
+    }
+
   })
-
 }
-
-
-
-
-
 
 module.exports = {
   create_depart,
