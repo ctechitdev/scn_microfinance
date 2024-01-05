@@ -1,8 +1,6 @@
 const request = require("express/lib/request");
 const connected = require("../../setting/connect");
-const queries = require("./depart_query");
-const { response } = require("express");
-const { connect } = require("../api_route");
+const queries = require("./depart_query"); 
 
 // Create depart
 const create_depart = (request, respond) => {

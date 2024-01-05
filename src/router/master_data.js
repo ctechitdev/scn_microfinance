@@ -4,22 +4,16 @@ const { Router } = require('express');
 //set router
 const router = Router();
 
-
-//Login
-const login_controller = require("./login/login_controller");
-router.post('/login', login_controller.login);
-
-//user 
-const register_controller = require('./user/register/register_controller');
-router.post('/register', register_controller.register_user);
+ 
+ 
 
 //dropdown 
 //--- depart
-const drop_down_depart_controller = require("./dropdown/depart/dropdown_depart_controller")
+const drop_down_depart_controller = require("../dropdown/depart/dropdown_depart_controller")
 router.post('/dropdown/depart',verifyToken,drop_down_depart_controller.drop_down_depart)
 
 // depart
-const depart_controller = require("./depart/depart_controller")
+const depart_controller = require("../depart/depart_controller")
 router.post('/depart/add',depart_controller.create_depart)
 router.post('/depart/get',depart_controller.get_depart)
 router.post('/depart/id',depart_controller.get_departById)
