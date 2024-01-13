@@ -1,6 +1,6 @@
 const request = require("express/lib/request");
 const connected = require("../../setting/connect");
-const queries = require("./depart_query"); 
+const queries = require("./depart_query");
 
 // Create depart
 const create_depart = (request, respond) => {
@@ -60,33 +60,34 @@ const get_departById = (request, response) => {
 const update_depart = (request, response) => {
   const { depart_id, depart_name } = request.body;
   connected.query(queries.get_departById, [depart_id], (error, results) => {
-    const noPeopleFound = !results.length;
-    if (noPeopleFound) {
-      response.json({ resultCode: "ບໍ່ພົບພະແນກ ບໍ່ສາມາດແກ້ໄຂໄດ້" });
+    const noDepartFound = !results.length;
+    if (noDepartFound) {
+      if (error) throw error;
+      response.json({ resultsCode: "ບໍ່ສາມາດແກ້ໄຂໄດ້" });
     }
     connected.query(queries.update_depart, [depart_name, depart_id], (error, results) => {
       if (error) throw error;
-      response.json({ resultCode: "ແກ້ໄຂພະແນກສຳເລັດ" });
+      response.json({ resultsCode: "ແກ້ໄຂພະແນກສຳເລັດ" });
     })
   })
 
 }
 
-// delete depart 
+// delete role 
 const delete_depart = (request, response) => {
   const { depart_id } = request.body;
   connected.query(queries.get_departById, [depart_id], (error, results) => {
-    const checkUserInDepart = queries.check_departInUser;
-    if (checkUserInDepart) {
-      if (error) throw error;
-      response.json({ resultCode: "ບໍ່ສາມາດລົບພະແນກໄດ້" });
-    }
-    else {
-      connected.query(queries.delete_depart, [depart_id], (error, results) => {
-        if (error) throw error;
-        response.json({ resultCode: "ລົບພະແນກສຳເລັດ" });
-      });
-    }
+      const checkUserIndepart = queries.check_departInUser.results;
+      if (checkUserIndepart) {
+          if (error) throw error;
+          response.json({ resultCode: "ບໍ່ສາມາດລົບພະແນກໄດ້".results });
+      }
+      else {
+          connected.query(queries.delete_depart, [depart_id], (error, results) => {
+              if (error) throw error;
+              response.json({ resultCode: "ລົບພະແນກສຳເລັດ" });
+          });
+      }
 
   })
 }
