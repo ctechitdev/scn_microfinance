@@ -22,7 +22,7 @@ router.post('/dropdown/holidaycate', verifyToken, drop_down_holiday_cate_control
 const depart_controller = require("../depart/depart_controller")
 router.post('/depart/add', depart_controller.create_depart)
 router.post('/depart/get', depart_controller.get_depart)
-router.post('/depart/id', depart_controller.get_departById)
+router.post('/depart/id',verifyToken, depart_controller.get_departById)
 router.put('/depart/update', depart_controller.update_depart)
 router.delete('/depart/delete', depart_controller.delete_depart)
 
