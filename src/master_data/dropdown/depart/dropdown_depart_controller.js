@@ -1,5 +1,5 @@
 const request = require("express/lib/request");
-const connected = require("../../../setting/connect");
+const connected = require("../../../../setting/connect");
 const queries = require("./dropdown_depart_query");
 
 const jwt = require('jsonwebtoken');

@@ -4,7 +4,7 @@ const get_role = "select * from tbl_roles";
 const add_roleByname = "insert into tbl_roles(role_name)values(?)";
 const update_role = "update tbl_roles set role_name = ? where role_id = ?";
 const delete_role = "DELETE FROM tbl_roles WHERE role_id = ?";
-const check_roleInUser = "SELECT * FROM tbl_user JOIN tbl_roles ON tbl_user.role_id = tbl_roles.role_id";
+const check_roleInUser = "SELECT * FROM tbl_user WHERE tbl_user.role_id=?;";
 
 
 

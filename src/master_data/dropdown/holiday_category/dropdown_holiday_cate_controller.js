@@ -1,6 +1,6 @@
 const request = require("express/lib/request");
-const connected = require("../../../setting/connect");
-const queries = require("./dropdown_roles_query");
+const connected = require("../../../../setting/connect");
+const queries = require("./dropdown_holiday_cate_query");
 
 const jwt = require('jsonwebtoken');
 const { response } = require("express");
@@ -11,12 +11,12 @@ const secretkey = "CtecMicrofinance";
 
 
 // show roles
-const drop_down_roles = (request, respond) =>{
+const drop_down_holidaycate = (request, respond) =>{
     jwt.verify(request.token, secretkey, (error, rtoken) =>{
         if(error){
             respond.status(200).json("token expire");
         }else{
-            connected.query(queries.show_roles, (error, results) =>{
+            connected.query(queries.show_holidaycate, (error, results) =>{
                 if(error) throw error;
                 if(results){
                     respond.status(200).json({result_code:'ok', data_role: results});
@@ -29,5 +29,5 @@ const drop_down_roles = (request, respond) =>{
 }
 
 module.exports={
-    drop_down_roles
+    drop_down_holidaycate
 }

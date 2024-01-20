@@ -1,6 +1,6 @@
 const express = require("express");
-const router_autherize = require("./src/router/autherize_user");
-const router_mater_data = require("./src/router/master_data");
+const router_autherize = require("./src/auterize/router/autherize_user");
+const router_mater_data = require("./src/master_data/router/master_data");
 
 const app = express();
 const port = 1500;
