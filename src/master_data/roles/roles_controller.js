@@ -93,25 +93,25 @@ const create_role = (request, response) => {
   };
 
 // delete role
-// const delete_role = (request, response) => {
-//   const {role_id} = request.body;
-//   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
-//     if (token_error) {
-//       response.json({ resultCode: "token error" })
-//     }else{
-//       connected.query(queries.get_roleById, [role_id], (error, results) =>{
-//         const checkUserInrole = queries.check_roleInUser;
-//         if(checkUserInrole){
-//           if (error)throw error;
-//           response.json({ resultCode: "ບໍ່ສາມາດລົບສິດໄດ້" });
-//         }else{
-//           if(error)throw error;
-//           response.json({ resultCode: "ລົບສິດສຳເລັດ" });
-//         }
-//       })
-//     }
-// })
-// }
+const delete_role = (request, response) => {
+  const {role_id} = request.body;
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error" })
+    }else{
+      connected.query(queries.get_roleById, [role_id], (error, results) =>{
+        const checkUserInrole = queries.check_roleInUser;
+        if(checkUserInrole){
+          if (error)throw error;
+          response.json({ resultCode: "ບໍ່ສາມາດລົບສິດໄດ້" });
+        }else{
+          if(error)throw error;
+          response.json({ resultCode: "ລົບສິດສຳເລັດ" });
+        }
+      })
+    }
+})
+}
  
 
 
@@ -122,5 +122,5 @@ module.exports = {
     get_role,
     get_roleById,
     update_role,
-    // delete_role,
+    delete_role,
 };

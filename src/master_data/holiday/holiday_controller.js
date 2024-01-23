@@ -94,27 +94,24 @@ const update_holiday = (request, response) => {
 };
 
 // // delete holiday
-// const delete_holiday = (request, response)=>{
-//   const {holiday_id} = request.body;
+// const delete_holiday = (request, response) => {
+//   const { holiday_id } = request.body;
 //   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
-//     if (token_error) {
-//       response.json({ resultCode: "token error" })
-//     }else{
-//       connected.query(queries.get_holidayById, [holiday_id], (error, results) => {
-//         const checkholidayInUser = queries.check_holidayInUser;
-//         const { checkholidayInUserholiday} = results[0];
-//         if (checkholidayInUserholiday){
-//           if(error)throw error;
-//           response.json({resultCode:"cannot delete"})
-//         }
-//         else{
-//           response.json({resultCode:"deleted"})
-//         }
-
-//       })
-//     }
-//   })
-// }
+//      if (token_error) {
+//        response.json({ resultCode: "token error" })
+//      } else {
+//        connected.query(queries.get_holidayById, [holiday_id], (error, results) => {
+//         const check = queries.check_holidayInUser;
+//          if (check) {
+//           if (error) throw error;
+//           response.json({ resultCode: " not deleted" })
+//          }else{
+//           response.json({ resultCode: " deleted" })
+//          } 
+//        });
+//      }
+//   });
+//  }
 
 module.exports = {
   create_holiday,

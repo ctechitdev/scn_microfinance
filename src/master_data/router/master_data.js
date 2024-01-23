@@ -24,7 +24,7 @@ router.post('/depart/add', verifyToken,depart_controller.create_depart)
 router.post('/depart/get', verifyToken,depart_controller.get_depart)
 router.post('/depart/id',verifyToken, depart_controller.get_departById)
 router.put('/depart/update',verifyToken, depart_controller.update_depart)
-// router.delete('/depart/delete',verifyToken, depart_controller.delete_depart)
+router.delete('/depart/delete',verifyToken, depart_controller.delete_depart)
 
 // roles
 const roles_controller = require("../roles/roles_controller");

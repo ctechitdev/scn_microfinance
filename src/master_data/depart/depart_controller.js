@@ -31,7 +31,7 @@ const create_depart = (request, response) => {
     }
   })
 }
-// get role or read role
+// get depart or read depart
 const get_depart = (request, response) => {
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
@@ -54,12 +54,8 @@ const get_departById = (request, response) => {
     } else {
       connected.query(queries.get_departById, [depart_id], (error, results) => {
         if (error) throw error;
-
-        // if there are data inside
         if (results.length) {
-          //Return the json message
           response.json(results);
-          //if undefind show the json message
         } else {
           response.json({ resultCode: "ບໍ່ພົບພະແນກນີ້ !" });
         }
@@ -92,28 +88,25 @@ const update_depart = (request, response) => {
   });
 };
 
-// // delete depart
-// const delete_depart = (request, response)=>{
-//   const {depart_id} = request.body;
-//   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
-//     if (token_error) {
-//       response.json({ resultCode: "token error" })
-//     }else{
-//       connected.query(queries.get_departById, [depart_id], (error, results) => {
-//         const checkDepartInUser = queries.check_departInUser;
-//         const { checkDepartInUserdepart} = results[0];
-//         if (checkDepartInUserdepart){
-//           if(error)throw error;
-//           response.json({resultCode:"cannot delete"})
-//         }
-//         else{
-//           response.json({resultCode:"deleted"})
-//         }
-
-//       })
-//     }
-//   })
-// }
+// delete depart
+const delete_depart = (request, response) => {
+  const { depart_id } = request.body;
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+     if (token_error) {
+       response.json({ resultCode: "token error" })
+     } else {
+       connected.query(queries.get_departById, [depart_id], (error, results) => {
+        const check = queries.check_departInUser;
+         if (check) {
+          if (error) throw error;
+          response.json({ resultCode: " not deleted" })
+         }else{
+          response.json({ resultCode: " deleted" })
+         } 
+       });
+     }
+  });
+ }
 
 
 
@@ -123,5 +116,5 @@ module.exports = {
   get_depart,
   get_departById,
   update_depart,
-  // delete_depart,
+  delete_depart,
 };
