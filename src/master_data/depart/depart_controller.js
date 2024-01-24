@@ -95,16 +95,33 @@ const delete_depart = (request, response) => {
      if (token_error) {
        response.json({ resultCode: "token error" })
      } else {
-       connected.query(queries.get_departById, [depart_id], (error, results) => {
-        const check = queries.check_departInUser;
-         if (check) {
-          if (error) throw error;
-          response.json({ resultCode: " not deleted" })
-         }else{
-          response.json({ resultCode: " deleted" })
-         } 
-       });
-     }
+      
+      connected.query(queries.check_departInUser, [depart_id], (error, results) => {
+        if (error) throw error;
+        if (results.length) {
+          // ຖ້າມີບໍ່ໃຫ້ມັນລົບ
+
+          response.json({ resultCode: "not allow to delete" })
+
+        } else {
+          
+          //ຖ້າບໍ່ມີລະໃຫ້ລົບ
+
+          //response.json({ resultCode: "allow to delete" })
+ 
+          //ຄຳສັງລົບ
+          connected.query(queries.delete_depart,[depart_id], (error, results) => {
+          if(error){
+            response.json({ resultCode: "delete error" })
+          }else{
+            response.json({ resultCode: "delete success" })
+          } 
+          })
+        
+        }
+      })
+    
+       }
   });
  }
 
