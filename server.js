@@ -5,7 +5,7 @@ const router_loan = require("./src/router/loan");
 
 
 const app = express();
-const port = 1500;
+const port = 5050;
 
 app.use(express.json());
 
