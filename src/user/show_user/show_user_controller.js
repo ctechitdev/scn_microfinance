@@ -42,6 +42,8 @@ const show_userByData = (request, response) => {
     }
   });
 };
+
+// router is in master data route
 module.exports = {
   show_user,
   show_userByData,
