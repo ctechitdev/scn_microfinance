@@ -59,7 +59,9 @@ router.post('/functionpage/id', verifyToken,func_page_controller.get_funcPageByI
 router.put('/functionpage/update', verifyToken,func_page_controller.update_funcPage)
 router.delete('/functionpage/delete',verifyToken, func_page_controller.delete_funcPage)
 
-
+const show_user_controller = require('../user/show_user/show_user_controller');
+router.post('/user/show',verifyToken,show_user_controller.show_user);
+router.post('/user/search',verifyToken,show_user_controller.show_userByData);
 
 
 
