@@ -5,7 +5,7 @@ const { Router } = require('express');
 const router = Router();
 
 // customer
-const customer_controller = require("../folder_loan/customer/customer_controller")
+const customer_controller = require("../loan_module/customer/customer_controller")
 router.post('/customer/add', verifyToken,customer_controller.create_customer)
 router.post('/customer/get', verifyToken,customer_controller.get_customer)
 router.post('/customer/name', verifyToken,customer_controller.get_customerByName)
@@ -13,7 +13,7 @@ router.post('/customer/phone', verifyToken,customer_controller.get_customerBypho
 router.put('/customer/update', verifyToken,customer_controller.update_customer)
 router.delete('/customer/delete', verifyToken,customer_controller.delete_customer)
 // customer data
-const cust_data_controller = require("../folder_loan/customer_data/cust_data_controller")
+const cust_data_controller = require("../loan_module/customer_data/cust_data_controller")
 router.post('/customer/data/search', verifyToken,cust_data_controller.get_customer_Data)
 
 function verifyToken(req, res, next) {

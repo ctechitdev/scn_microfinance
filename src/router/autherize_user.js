@@ -6,7 +6,7 @@ const router = Router();
 
 
 //Login
-const login_controller = require("../folder_auterize/login/login_controller");
+const login_controller = require("../autherization/login/login_controller");
 router.post('/login', login_controller.login);
 
 //user 
