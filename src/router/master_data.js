@@ -6,18 +6,7 @@ const router = Router();
 
 
 
-
-//dropdown 
-//--- depart
-const drop_down_depart_controller = require("../dropdown/depart/dropdown_depart_controller")
-router.post('/dropdown/depart', verifyToken, drop_down_depart_controller.drop_down_depart)
-//--- roles
-const drop_down_roles_controller = require("../dropdown/roles/dropdown_roles_controller")
-router.post('/dropdown/roles', drop_down_roles_controller.drop_down_roles)
-//---holiday category
-const drop_down_holiday_cate_controller = require("../dropdown/holiday_category/dropdown_holiday_cate_controller")
-router.post('/dropdown/holidaycate', drop_down_holiday_cate_controller.drop_down_holidaycate)
-
+ 
 // depart
 const depart_controller = require("../master_data_module/depart/depart_controller")
 router.post('/depart/add', verifyToken,depart_controller.create_depart)
