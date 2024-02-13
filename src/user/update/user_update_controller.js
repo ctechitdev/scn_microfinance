@@ -8,7 +8,7 @@ const secretkey = "CtecMicrofinance";
 
 const update_user = (request, respond) => {
 
-    const { full_name, role,depart, user_status } = request.body;
+    const { full_name, role_id,depart_id, user_status } = request.body;
 
     console.log(user_id);
 
@@ -21,7 +21,7 @@ const update_user = (request, respond) => {
 
                 console.log(id);
 
-                connected.query(queries.update_user,[full_name, role,depart, user_status, id],(error, results)=>{
+                connected.query(queries.update_user,[full_name, role_id,depart_id, user_status, id],(error, results)=>{
                 
                     if(error) throw error;
                     if(results){
