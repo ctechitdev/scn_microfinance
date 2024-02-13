@@ -1,0 +1,530 @@
+{
+	"info": {
+		"_postman_id": "0ec8ae3b-655f-4369-aa7e-8ccdb431c684",
+		"name": "SCN Microfinance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23361546"
+	},
+	"item": [
+		{
+			"name": "SCNMF Local Dev",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "register_user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"billy2\",\r\n    \"user_name\": \"souk5\",\r\n    \"user_password\": \"123\",\r\n    \"role\": \"1\",\r\n    \"depart\": \"17\",\r\n    \"add_by\": \"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local_dev}}/autherize/register",
+									"host": [
+										"{{local_dev}}"
+									],
+									"path": [
+										"autherize",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "master_data",
+					"item": [
+						{
+							"name": "depart",
+							"item": [
+								{
+									"name": "add_depart",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwNzcxNjE2N30.GcR-TSNI4IlBI4Y6t3xLsURtWDoB9CLZbRt7uAIHzSE",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"depart_name\":\"testing\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/depart/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"depart",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_all_depart",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwNzcxODEzOX0.WSTmWd8xs5Tz3H65Do2JX-5QnEKBqmLszvSJvV0xNSk",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/masterdata/depart/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"depart",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_depart_by_depart_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwNzcxODEzOX0.WSTmWd8xs5Tz3H65Do2JX-5QnEKBqmLszvSJvV0xNSk",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"depart_id\":\"17\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/depart/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"depart",
+												"id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update_depart_by_depart_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwNzcxODkxMn0.cIt1MNMvjjxP97gvkfiE-JufGyUC635Ynkib7SSVbZQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"depart_id\":\"17\",\r\n     \"depart_name\":\"ການຕະລາດ2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/depart/update",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"depart",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete_depart_by_depart_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwNzcxODkxMn0.cIt1MNMvjjxP97gvkfiE-JufGyUC635Ynkib7SSVbZQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"depart_id\":\"18\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/depart/delete",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"depart",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"souk2\",\r\n     \"password\":\"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local_dev}}/autherize/login",
+									"host": [
+										"{{local_dev}}"
+									],
+									"path": [
+										"autherize",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "SCNMF UAT Dev",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "register_user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"billy2\",\r\n    \"user_name\": \"souk51\",\r\n    \"user_password\": \"123\",\r\n    \"role\": \"1\",\r\n    \"depart\": \"17\",\r\n    \"add_by\": \"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uat_dev}}/autherize/register",
+									"host": [
+										"{{uat_dev}}"
+									],
+									"path": [
+										"autherize",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "master_data",
+					"item": [
+						{
+							"name": "depart",
+							"item": [
+								{
+									"name": "add_depart",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwNzcxNjE2N30.GcR-TSNI4IlBI4Y6t3xLsURtWDoB9CLZbRt7uAIHzSE",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"depart_name\":\"testing\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat_dev}}/masterdata/depart/add",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"depart",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_all_depart",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwNzcxODEzOX0.WSTmWd8xs5Tz3H65Do2JX-5QnEKBqmLszvSJvV0xNSk",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{uat_dev}}/masterdata/depart/get",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"depart",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_depart_by_depart_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwNzcxODEzOX0.WSTmWd8xs5Tz3H65Do2JX-5QnEKBqmLszvSJvV0xNSk",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"depart_id\":\"17\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat_dev}}/masterdata/depart/id",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"depart",
+												"id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update_depart_by_depart_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwNzcxODkxMn0.cIt1MNMvjjxP97gvkfiE-JufGyUC635Ynkib7SSVbZQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"depart_id\":\"17\",\r\n     \"depart_name\":\"ການຕະລາດ2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat_dev}}/masterdata/depart/update",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"depart",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete_depart_by_depart_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwNzcxODkxMn0.cIt1MNMvjjxP97gvkfiE-JufGyUC635Ynkib7SSVbZQ",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"depart_id\":\"18\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat_dev}}/masterdata/depart/delete",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"depart",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"souk51\",\r\n     \"password\":\"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{uat_dev}}/autherize/login",
+									"host": [
+										"{{uat_dev}}"
+									],
+									"path": [
+										"autherize",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
