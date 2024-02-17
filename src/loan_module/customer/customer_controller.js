@@ -94,7 +94,7 @@ const create_customer = (request, response) => {
     }
   });
 };
-// Get all customer
+// Get all customer fff
 const get_customer = (request, response) => {
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
