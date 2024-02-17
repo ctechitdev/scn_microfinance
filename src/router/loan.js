@@ -16,6 +16,13 @@ router.delete('/customer/delete', verifyToken,customer_controller.delete_custome
 const cust_data_controller = require("../loan_module/customer_data/cust_data_controller")
 router.post('/customer/data/search', verifyToken,cust_data_controller.get_customer_Data)
 
+//asset type customer
+const asset_type_controller = require("../loan_module/asset_type_customer/asset_type_cust_controller")
+router.post('/assetType/add', verifyToken,asset_type_controller.create_asset_type)
+router.post('/assetType/get', verifyToken,asset_type_controller.get_asset_type)
+router.post('/assetType/id', verifyToken,asset_type_controller.get_asset_TypeById)
+router.put('/assetType/update', verifyToken,asset_type_controller.update_asset_type)
+
 function verifyToken(req, res, next) {
   // Get auth header value
   const bearerHeader = req.headers['authorization'];
