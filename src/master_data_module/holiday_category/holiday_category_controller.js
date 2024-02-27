@@ -78,8 +78,8 @@ const create_holidaycate = (request, response) => {
         response.json({ resultCode: "token error" })
       } else {
         connected.query(queries.get_holiday_cateById, [holiday_category_id], (error, results) => {
-          const noປະເພດວັນພັກFound = !results.length;
-          if (noປະເພດວັນພັກFound) {
+          const notFound = !results.length;
+          if (notFound) {
             if (error) throw error;
             response.json({ resultsCode: "ບໍ່ສາມາດແກ້ໄຂປະເພດວັນພັກໄດ້" });
           } else {

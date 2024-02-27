@@ -22,6 +22,7 @@ router.post('/assetType/add', verifyToken,asset_type_controller.create_asset_typ
 router.post('/assetType/get', verifyToken,asset_type_controller.get_asset_type)
 router.post('/assetType/id', verifyToken,asset_type_controller.get_asset_TypeById)
 router.put('/assetType/update', verifyToken,asset_type_controller.update_asset_type)
+router.delete('/assetType/delete', verifyToken,asset_type_controller.delete_asset_type)
 
 function verifyToken(req, res, next) {
   // Get auth header value
