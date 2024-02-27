@@ -88,6 +88,7 @@ const get_asset_TypeById = (request, response) => {
   };
 
   // delete asset type
+  //
 const delete_asset_type = (request, response) => {
   const { asset_type_customer_name } = request.body;
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
