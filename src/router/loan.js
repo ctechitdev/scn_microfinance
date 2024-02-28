@@ -24,6 +24,14 @@ router.post('/assetType/id', verifyToken,asset_type_controller.get_asset_TypeByI
 router.put('/assetType/update', verifyToken,asset_type_controller.update_asset_type)
 router.delete('/assetType/delete', verifyToken,asset_type_controller.delete_asset_type)
 
+// currency
+const currency_controller = require("../loan_module/currency/currency_controller")
+router.post('/currency/add', verifyToken,currency_controller.create_currency)
+router.post('/currency/get', verifyToken,currency_controller.get_currency)
+router.post('/currency/id', verifyToken,currency_controller.get_currencyById)
+router.put('/currency/update', verifyToken,currency_controller.update_currency)
+router.delete('/currency/delete', verifyToken,currency_controller.delete_currency)
+
 function verifyToken(req, res, next) {
   // Get auth header value
   const bearerHeader = req.headers['authorization'];

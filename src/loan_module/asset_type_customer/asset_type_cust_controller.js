@@ -63,32 +63,39 @@ const get_asset_TypeById = (request, response) => {
   };
 
 
-  // ແກ້ໂຕນີ້ຕື່ມ ໃຫ້ກວດສອບຖ້າຊື່ຊ້ຳບໍ່ສາມາດແກ້ໄຂໄດ້
   const update_asset_type = (request, response) => {
-    const { asset_type_customer_name, asset_type_customer_id } = request.body;
-  
+    const { asset_type_customer_name, asset_type_customer_id} = request.body;
     jwt.verify(request.token, secretkey, (token_error, rstoken) => {
       if (token_error) {
         response.json({ resultCode: "token error" })
       } else {
-        connected.query(queries.get_asset_TypeById, [ asset_type_customer_id], (error, results) => {
-          const notFound = !results.length;
-          if (notFound) {
-            if (error) throw error;
-            response.json({ resultsCode: "ບໍ່ສາມາດແກ້ໄຂປະເພດ asset ໄດ້" });
+  
+        connected.query(queries.get_asset_TypeById, [asset_type_customer_id], (error, results) => {
+          if (error) throw error;
+          if (!results.length) {
+            // ຖ້າມີບໍ່ໃຫ້ມັນແກ້ໄຂ
+  
+            response.json({ resultCode: "ບໍ່ອະນຸຍາດໃຫ້ແກ້ໄຂປະເພດຊັບສິນນີ້" })
+  
           } else {
-            connected.query(queries.update_asset_type, [asset_type_customer_name, asset_type_customer_id], (error, results) => {
-            if (error) throw error;
-            response.json({ resultsCode: "ແກ້ໄຂປະເພດ asset ສຳເລັດ" });
+            connected.query(queries.check_assetByName, [asset_type_customer_name], (error, results) => {
+              if (results.length) {
+                response.json({ resultCode: "ມີປະເພດຊັບສິນນີ້ຢູ່ແລ້ວ" })
+              } else {
+                connected.query(queries.update_asset_type, [ asset_type_customer_name, asset_type_customer_id], (error, results) => {
+                  if (error) throw error;
+                  response.json({ resultsCode: "ແກ້ໄຂປະເພດຊັບສິນສຳເລັດ" });
+                  })
+              }
             })
+  
           }
-        });
+        })
       }
     });
-  };
+  }
 
   // delete asset type
-  //
 const delete_asset_type = (request, response) => {
   const { asset_type_customer_name } = request.body;
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {

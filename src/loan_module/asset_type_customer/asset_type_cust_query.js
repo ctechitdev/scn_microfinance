@@ -6,6 +6,7 @@ const update_asset_type = "update tbl_asset_type_customer set asset_type_custome
 const check_asset_type = "select * from tbl_asset_credit_customer where asset_type_customer_name = ? "
 const delete_asset_type = "delete from tbl_asset_type_customer where asset_type_customer_name=?"
 
+
 module.exports={
     check_assetByName,
     add_assetByName,
