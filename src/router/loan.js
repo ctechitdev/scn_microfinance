@@ -24,6 +24,12 @@ router.post('/assetType/id', verifyToken,asset_type_controller.get_asset_TypeByI
 router.put('/assetType/update', verifyToken,asset_type_controller.update_asset_type)
 router.delete('/assetType/delete', verifyToken,asset_type_controller.delete_asset_type)
 
+
+//asset type customer
+const asset_credit_controller = require("../loan_module/asset_credit_customer/asset_credit_cust_controller")
+router.post('/assetCredit/add', verifyToken,asset_credit_controller.create_asset_credit)
+
+
 // currency
 const currency_controller = require("../loan_module/currency/currency_controller")
 router.post('/currency/add', verifyToken,currency_controller.create_currency)
