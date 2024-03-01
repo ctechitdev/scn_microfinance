@@ -52,8 +52,22 @@ const create_asset_credit = (request, response) => {
       }
     })
   }
+  // Get all asset credit customer 
+const get_asset_credit = (request, response) => {
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(queries.get_asset_credit, (error, results) => {
+        if (error) throw error;
+        response.json(results);
+      });
+    }
+  });
+};
 
 
 module.exports={
-    create_asset_credit
+    create_asset_credit,
+    get_asset_credit
 }

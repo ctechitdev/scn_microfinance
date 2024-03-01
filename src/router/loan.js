@@ -28,6 +28,7 @@ router.delete('/assetType/delete', verifyToken,asset_type_controller.delete_asse
 //asset type customer
 const asset_credit_controller = require("../loan_module/asset_credit_customer/asset_credit_cust_controller")
 router.post('/assetCredit/add', verifyToken,asset_credit_controller.create_asset_credit)
+router.post('/assetCredit/get', verifyToken,asset_credit_controller.get_asset_credit)
 
 
 // currency
