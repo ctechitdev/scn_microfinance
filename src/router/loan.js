@@ -29,6 +29,8 @@ router.delete('/assetType/delete', verifyToken,asset_type_controller.delete_asse
 const asset_credit_controller = require("../loan_module/asset_credit_customer/asset_credit_cust_controller")
 router.post('/assetCredit/add', verifyToken,asset_credit_controller.create_asset_credit)
 router.post('/assetCredit/get', verifyToken,asset_credit_controller.get_asset_credit)
+router.put('/assetCredit/update', verifyToken,asset_credit_controller.update_asset_credit)
+router.delete('/assetCredit/delete', verifyToken,asset_credit_controller.delete_asset_credit)
 
 
 // currency

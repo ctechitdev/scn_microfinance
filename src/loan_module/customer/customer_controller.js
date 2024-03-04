@@ -252,13 +252,13 @@ const delete_customer = (request, response) => {
             // ຖ້າມີບໍ່ໃຫ້ມັນລົບ
             response.json({ resultCode: "ບໍ່ອະນຸຍາດໃຫ້ລົບ customer ນີ້" });
           } else {
-            // connected.query(queries.delete_customer, [customer_id], (error, results) => {
+            connected.query(queries.delete_customer, [customer_id], (error, results) => {
             if (error) {
               response.json({ resultCode: "delete error" });
             } else {
               response.json({ resultCode: "ການລົບ customer ສຳເລັດ" });
             }
-            // })
+            })
           }
         }
       );

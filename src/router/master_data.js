@@ -56,6 +56,15 @@ router.post('/user/search',verifyToken,show_user_controller.show_userByData);
 const user_update_controller = require('../user/update/user_update_controller');
 router.put('/user/update',verifyToken,user_update_controller.update_user);
 
+// provinces
+const province_controller = require('../master_data_module/provinces/province_controller');
+router.post('/province/add',verifyToken,province_controller.add_province);
+router.post('/province/get',verifyToken,province_controller.get_province);
+router.post('/province/id',verifyToken,province_controller.get_province_id);
+router.put('/province/update',verifyToken,province_controller.update_province);
+router.delete('/province/delete',verifyToken,province_controller.delete_province);
+
+
 
 
 
