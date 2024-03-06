@@ -119,10 +119,16 @@ const get_province_id = (request, response) => {
                   if (!results.length) {
                     response.json({ resultCode: "delete error" })
                   } else {
-    
-                    connected.query(queries.delete_province, [province_id], (error, results) => {
-                    response.json({ resultCode: "ການລົບແຂວງສຳເລັດ" })
+                    connected.query(queries.check_province_district, [province_id], (error, results) => {
+                      if (results.length) {
+                        response.json({ resultCode: "ບໍ່ອະນຸຍາດໃຫ້ລົບແຂວງນີ້" })
+                      } else{
+                        connected.query(queries.delete_province, [province_id], (error, results) => {
+                          response.json({ resultCode: "ການລົບແຂວງສຳເລັດ" })
+                          })
+                      }
                     })
+
     
                   }
                 })

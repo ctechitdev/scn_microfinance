@@ -64,6 +64,14 @@ router.post('/province/id',verifyToken,province_controller.get_province_id);
 router.put('/province/update',verifyToken,province_controller.update_province);
 router.delete('/province/delete',verifyToken,province_controller.delete_province);
 
+// districts
+const district_controller = require('../master_data_module/districts/district_controller');
+router.post('/districts/add',verifyToken,district_controller.add_districts);
+router.post('/districts/get',verifyToken,district_controller.get_districts);
+router.post('/districts/id',verifyToken,district_controller.get_districts_id);
+router.put('/districts/update',verifyToken,district_controller.update_districts);
+router.delete('/districts/delete',verifyToken,district_controller.delete_districts);
+
 
 
 
