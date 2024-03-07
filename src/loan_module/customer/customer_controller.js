@@ -154,6 +154,30 @@ const get_customerByphone = (request, response) => {
     }
   });
 };
+
+// get customer by id 
+const get_customer_id = (request, response) => {
+  const { customer_id } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(
+        queries.get_customerById,
+        [customer_id],
+        (error, results) => {
+          if (error) throw error;
+          if (results.length) {
+            response.json(results);
+          } else {
+            response.json({ resultCode: "ບໍ່ພົບ customer ນີ້ !" });
+          }
+        }
+      );
+    }
+  });
+};
 //update customer
 const update_customer = (request, response) => {
   const {
@@ -271,6 +295,7 @@ module.exports = {
   get_customer,
   get_customerByName,
   get_customerByphone,
+  get_customer_id,
   update_customer,
   delete_customer,
 };
