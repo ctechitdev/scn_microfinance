@@ -19,7 +19,10 @@ router.post('/customer/data/search', verifyToken,cust_data_controller.get_custom
 //account
 const account_controller = require("../loan_module/account/account_controller")
 router.post('/account/add', verifyToken,account_controller.create_account)
-router.post('/account/get', verifyToken,account_controller.get_account)
+router.post('/account/get', verifyToken,account_controller.get_account) // no left join
+router.post('/account/id', verifyToken,account_controller.get_account_Id) // no left join
+router.post('/account/number', verifyToken,account_controller.get_account_number) // no left join
+router.post('/account/firstname', verifyToken,account_controller.get_account_customer_firstname) // no left join
 
 //asset type customer
 const asset_type_controller = require("../loan_module/asset_type_customer/asset_type_cust_controller")

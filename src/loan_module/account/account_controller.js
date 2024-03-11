@@ -36,7 +36,7 @@ const create_account = (request, response) => {
             response.json({ resultCode: "ມີບັນຊີນີ້ແລ້ວ !" });
           } else {
             connected.query(
-              queries.add_accountByCode,
+              queries.add_account,
               [
                 account_number,
                 CIF_id,
@@ -74,7 +74,70 @@ const get_account = (request, response) => {
   });
 };
 
+  //---get account by id
+  const get_account_Id = (request, response) => {
+    const { account_id } = request.body;
+  
+    jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+      if (token_error) {
+        response.json({ resultCode: "token error " });
+      } else {
+        connected.query(queries.get_account_id, [account_id], (error, results) => {
+          if (error) throw error;
+          if (results.length) {
+            response.json(results);
+          } else {
+            response.json({ resultCode: "ບໍ່ພົບບັນຊີນີ້ !" });
+          }
+        });
+      }
+    });
+  };
+
+    //---get currency by id
+    const get_account_number = (request, response) => {
+      const { account_number } = request.body;
+    
+      jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+        if (token_error) {
+          response.json({ resultCode: "token error " });
+        } else {
+          connected.query(queries.get_account_number, [account_number], (error, results) => {
+            if (error) throw error;
+            if (results.length) {
+              response.json(results);
+            } else {
+              response.json({ resultCode: "ບໍ່ພົບບັນຊີນີ້ !" });
+            }
+          });
+        }
+      });
+    };
+
+        //---get currency by id
+        const get_account_customer_firstname = (request, response) => {
+          const { first_name } = request.body;
+        
+          jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+            if (token_error) {
+              response.json({ resultCode: "token error " });
+            } else {
+              connected.query(queries.get_customer, [first_name], (error, results) => {
+                if (error) throw error;
+                if (results.length) {
+                  response.json(results);
+                } else {
+                  response.json({ resultCode: "ບໍ່ພົບບັນຊີນີ້ !" });
+                }
+              });
+            }
+          });
+        };
+
 module.exports = {
   create_account,
   get_account,
+  get_account_Id,
+  get_account_number,
+  get_account_customer_firstname
 };
