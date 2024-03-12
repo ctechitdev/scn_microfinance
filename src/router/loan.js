@@ -8,21 +8,18 @@ const router = Router();
 const customer_controller = require("../loan_module/customer/customer_controller")
 router.post('/customer/add', verifyToken,customer_controller.create_customer)
 router.post('/customer/get', verifyToken,customer_controller.get_customer)
-router.post('/customer/name', verifyToken,customer_controller.get_customerByName)
-router.post('/customer/phone', verifyToken,customer_controller.get_customerByphone)
-router.post('/customer/id', verifyToken,customer_controller.get_customer_id)
 router.put('/customer/update', verifyToken,customer_controller.update_customer)
 router.delete('/customer/delete', verifyToken,customer_controller.delete_customer)
-// customer data
-const cust_data_controller = require("../loan_module/customer_data/cust_data_controller")
-router.post('/customer/data/search', verifyToken,cust_data_controller.get_customer_Data)
+router.post('/customer/search', verifyToken,customer_controller.search_customer)
 //account
 const account_controller = require("../loan_module/account/account_controller")
 router.post('/account/add', verifyToken,account_controller.create_account)
 router.post('/account/get', verifyToken,account_controller.get_account) // no left join
 router.post('/account/id', verifyToken,account_controller.get_account_Id) // no left join
 router.post('/account/number', verifyToken,account_controller.get_account_number) // no left join
-router.post('/account/firstname', verifyToken,account_controller.get_account_customer_firstname) // no left join
+router.post('/account/firstname', verifyToken,account_controller.get_account_customer_firstname) // no left join / not yet
+router.put('/customer/update', verifyToken,customer_controller.update_customer)
+
 
 //asset type customer
 const asset_type_controller = require("../loan_module/asset_type_customer/asset_type_cust_controller")

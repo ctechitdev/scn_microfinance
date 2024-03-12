@@ -1,7 +1,9 @@
 const get_customerByName = "select * from tbl_customer where first_name = ? and last_name = ? ";
 const get_customerById = "select * from tbl_customer where customer_id = ?"
-const get_customerName = "select * from tbl_customer where first_name = ?";
-const get_customerByPhone = "select * from tbl_customer where phone_number = ?"
+
+const search_customer =
+ "select first_name,last_name,age,phone_number,whats_app_number,village_namge, districts_name, province_name from tbl_customer  left join tbl_districts on tbl_customer.district_id = tbl_districts.districts_id left join tbl_province on tbl_customer.province_id = tbl_province.province_id where first_name =? or last_name=? or age=? or phone_number=? or whats_app_number=? or village_namge=? or districts_name=? or province_name =?";
+const search_identified = "select first_name,last_name,age,phone_number,whats_app_number,village_namge, districts_name, province_name,picture_identified_name from tbl_picture_identified  left join tbl_customer on tbl_picture_identified.customer_id=tbl_customer.customer_id left join tbl_districts on tbl_customer.district_id = tbl_districts.districts_id left join tbl_province on tbl_customer.province_id = tbl_province.province_id where picture_identified_name=?";
 
 const get_customer = "select customer_id, profile_picture, concat(gender,' ',first_name,' ',last_name) as full_name,age, village_namge,districts_name,province_name from tbl_customer left join tbl_districts on tbl_customer.district_id = tbl_districts.districts_id left join tbl_province on tbl_customer.province_id = tbl_province.province_id";
 const add_customer = "insert into tbl_customer(profile_picture,gender,first_name,last_name,full_name,age,date_birth,customer_nationality,customer_job,customer_job_location,province_id,district_id, village_namge,house_unit,house_number,phone_number,whats_app_number,house_owner_category,live_time_values,live_time_type,house_owner_status,customer_status,assigned_by,add_by,customer_user_id,add_date) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,current_date)";
@@ -20,8 +22,8 @@ module.exports = {
     update_customer,
     delete_customer,
     get_customerByName,
-    get_customerByPhone,
-    get_customerName,
     check_loan_request,
-    checkName
+    checkName,
+    search_customer,
+    search_identified
 };
