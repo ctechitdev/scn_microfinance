@@ -10,6 +10,8 @@ router.post('/customer/add', verifyToken,customer_controller.create_customer)
 router.post('/customer/get', verifyToken,customer_controller.get_customer)
 router.put('/customer/update', verifyToken,customer_controller.update_customer)
 router.delete('/customer/delete', verifyToken,customer_controller.delete_customer)
+router.post('/customer/name', verifyToken,customer_controller.get_customerByName)
+router.post('/customer/phone', verifyToken,customer_controller.get_customerByphone)
 router.post('/customer/search', verifyToken,customer_controller.search_customer)
 //account
 const account_controller = require("../loan_module/account/account_controller")
@@ -18,7 +20,6 @@ router.post('/account/get', verifyToken,account_controller.get_account) // no le
 router.post('/account/id', verifyToken,account_controller.get_account_Id) // no left join
 router.post('/account/number', verifyToken,account_controller.get_account_number) // no left join
 router.post('/account/firstname', verifyToken,account_controller.get_account_customer_firstname) // no left join / not yet
-router.put('/customer/update', verifyToken,customer_controller.update_customer)
 
 
 //asset type customer
@@ -34,6 +35,7 @@ router.delete('/assetType/delete', verifyToken,asset_type_controller.delete_asse
 const asset_credit_controller = require("../loan_module/asset_credit_customer/asset_credit_cust_controller")
 router.post('/assetCredit/add', verifyToken,asset_credit_controller.create_asset_credit)
 router.post('/assetCredit/get', verifyToken,asset_credit_controller.get_asset_credit)
+router.post('/assetCredit/search', verifyToken,asset_credit_controller.search)
 router.put('/assetCredit/update', verifyToken,asset_credit_controller.update_asset_credit)
 router.delete('/assetCredit/delete', verifyToken,asset_credit_controller.delete_asset_credit)
 

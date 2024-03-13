@@ -69,6 +69,49 @@ const get_asset_credit = (request, response) => {
     }
   });
 };
+//search
+const search = (request, response) => {
+  const {
+    first_name,
+    last_name,
+    age,
+    phone_number,
+    whats_app_number,
+    village_namge,
+    districts_name,
+    province_name,
+    asset_credit_values,
+  } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(
+        queries.search,
+        [
+          first_name,
+          last_name,
+          age,
+          phone_number,
+          whats_app_number,
+          village_namge,
+          districts_name,
+          province_name,
+          asset_credit_values,
+        ],
+        (error, results) => {
+          if (error) throw error;
+          if (results.length) {
+            response.json(results);
+          } else {
+            response.json({ resultCode: "ບໍ່ພົບສັບສິນລູກຄ້ານີ້ !" });
+          }
+        }
+      );
+    }
+  });
+};
 
 const update_asset_credit = (request, response) => {
   const {
@@ -131,13 +174,17 @@ const delete_asset_credit = (request, response) => {
             // ຖ້າມີບໍ່ໃຫ້ມັນລົບ
             response.json({ resultCode: "ບໍ່ອະນຸຍາດໃຫ້ລົບ ສັບສິນລູກຄ້າ ນີ້" });
           } else {
-            connected.query(queries.delete_asset_credit, [asset_credit_customer_id], (error, results) => {
-            if (error) {
-              response.json({ resultCode: "delete error" });
-            } else {
-              response.json({ resultCode: "ການລົບ ສັບສິນລູກຄ້າ ສຳເລັດ" });
-            }
-            })
+            connected.query(
+              queries.delete_asset_credit,
+              [asset_credit_customer_id],
+              (error, results) => {
+                if (error) {
+                  response.json({ resultCode: "delete error" });
+                } else {
+                  response.json({ resultCode: "ການລົບ ສັບສິນລູກຄ້າ ສຳເລັດ" });
+                }
+              }
+            );
           }
         }
       );
@@ -148,6 +195,7 @@ const delete_asset_credit = (request, response) => {
 module.exports = {
   create_asset_credit,
   get_asset_credit,
+  search,
   update_asset_credit,
-  delete_asset_credit
+  delete_asset_credit,
 };

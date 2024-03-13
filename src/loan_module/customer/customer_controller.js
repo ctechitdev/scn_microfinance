@@ -108,6 +108,54 @@ const get_customer = (request, response) => {
   });
 };
 
+// Get customer by name
+const get_customerByName = (request, response) => {
+  const { first_name } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(
+        queries.get_customerName,
+        [first_name],
+        (error, results) => {
+          if (error) throw error;
+          if (results.length) {
+            response.json(results);
+          } else {
+            response.json({ resultCode: "ບໍ່ພົບ customer ນີ້ !" });
+          }
+        }
+      );
+    }
+  });
+};
+
+// Get customer by phone
+const get_customerByphone = (request, response) => {
+  const { phone_number } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(
+        queries.get_customerByPhone,
+        [phone_number],
+        (error, results) => {
+          if (error) throw error;
+          if (results.length) {
+            response.json(results);
+          } else {
+            response.json({ resultCode: "ບໍ່ພົບ customer ນີ້ !" });
+          }
+        }
+      );
+    }
+  });
+};
+
 const search_customer = (request, response) => {
   const {
     first_name,
@@ -158,11 +206,6 @@ const search_customer = (request, response) => {
     }
   });
 };
-
-
-
-
-
 
 //update customer
 const update_customer = (request, response) => {
@@ -232,8 +275,7 @@ const update_customer = (request, response) => {
                 live_time_type,
                 house_owner_status,
                 add_by,
-                customer_user_id
-                
+                customer_user_id,
               ],
               (error, results) => {
                 if (error) throw error;
@@ -262,13 +304,17 @@ const delete_customer = (request, response) => {
             // ຖ້າມີບໍ່ໃຫ້ມັນລົບ
             response.json({ resultCode: "ບໍ່ອະນຸຍາດໃຫ້ລົບ customer ນີ້" });
           } else {
-            connected.query(queries.delete_customer, [customer_id], (error, results) => {
-            if (error) {
-              response.json({ resultCode: "delete error" });
-            } else {
-              response.json({ resultCode: "ການລົບ customer ສຳເລັດ" });
-            }
-            })
+            connected.query(
+              queries.delete_customer,
+              [customer_id],
+              (error, results) => {
+                if (error) {
+                  response.json({ resultCode: "delete error" });
+                } else {
+                  response.json({ resultCode: "ການລົບ customer ສຳເລັດ" });
+                }
+              }
+            );
           }
         }
       );
@@ -280,6 +326,8 @@ module.exports = {
   create_customer,
   get_customer,
   search_customer,
+  get_customerByName,
+  get_customerByphone,
   update_customer,
   delete_customer,
 };

@@ -1,5 +1,7 @@
 const get_customerByName = "select * from tbl_customer where first_name = ? and last_name = ? ";
 const get_customerById = "select * from tbl_customer where customer_id = ?"
+const get_customerName = "select * from tbl_customer where first_name = ?";
+const get_customerByPhone = "select * from tbl_customer where phone_number = ?"
 
 const search_customer =
  "select first_name,last_name,age,phone_number,whats_app_number,village_namge, districts_name, province_name from tbl_customer  left join tbl_districts on tbl_customer.district_id = tbl_districts.districts_id left join tbl_province on tbl_customer.province_id = tbl_province.province_id where first_name =? or last_name=? or age=? or phone_number=? or whats_app_number=? or village_namge=? or districts_name=? or province_name =?";
@@ -25,5 +27,7 @@ module.exports = {
     check_loan_request,
     checkName,
     search_customer,
-    search_identified
+    search_identified,
+    get_customerName,
+    get_customerByPhone
 };
