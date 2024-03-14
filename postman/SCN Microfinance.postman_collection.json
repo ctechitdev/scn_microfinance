@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "0ec8ae3b-655f-4369-aa7e-8ccdb431c684",
+		"_postman_id": "7b34f47f-0ff2-4588-802c-bcc4cccc1867",
 		"name": "SCN Microfinance",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23361546"
+		"_exporter_id": "31596692",
+		"_collection_link": "https://universal-astronaut-49452.postman.co/workspace/SCN-Microfinance~fe8b8a08-36c7-49f8-b0c9-bf90919667e8/collection/23361546-7b34f47f-0ff2-4588-802c-bcc4cccc1867?action=share&source=collection_link&creator=31596692"
 	},
 	"item": [
 		{
@@ -229,6 +230,378 @@
 									"response": []
 								}
 							]
+						},
+						{
+							"name": "provinces",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"province_name\":\"ມາດານິ\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/province/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"province",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/masterdata/province/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"province",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read_by_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"province_id\":\"1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/province/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"province",
+												"id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n     \"province_id\":\"20\",\r\n     \"province_name\":\"ວຽງຈັນ\"\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/province/update",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"province",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"province_id\":\"20\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/province/delete",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"province",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "districts",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"province_id\":\"1\",\r\n    \"districts_name\":\"ອຳນາດຈະເລີນສາ\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/districts/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"districts",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/masterdata/districts/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"districts",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read_by_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n            \"districts_id\":\"1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/districts/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"districts",
+												"id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n     \"districts_id\": \"153\",\r\n        \"province_id\": \"1\",\r\n        \"districts_name\": \"ພາສາເທບ\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/districts/update",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"districts",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n            \"districts_id\": \"1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/masterdata/districts/delete",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"masterdata",
+												"districts",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				},
@@ -261,6 +634,540 @@
 								}
 							},
 							"response": []
+						}
+					]
+				},
+				{
+					"name": "loan_module",
+					"item": [
+						{
+							"name": "customer",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"profile_picture\":\"bo.png\",\r\n\"gender\":\"ທ້າວ\",\r\n\"first_name\":\"ແລ່ມໂບ້\",\r\n\"last_name\":\"ຜຸຍຄຳແດງ\",\r\n\"full_name\":\"ທ້າວ ແລ່ມໂບ້ ຜຸຍຄຳແດງ\",\r\n\"age\":\"19\",\r\n\"date_birth\":\"2004-04-17\",\r\n\"customer_nationality\":\"\",\r\n\"customer_job\":\"\",\r\n\"customer_job_location\":\"\",\r\n\"province_id\":\"1\",\r\n\"district_id\":\"1\",\r\n\"village_namge\":\"ໂນນຂີ້ເຫຼັກ\",\r\n\"house_unit\":\"\",\r\n\"house_number\":\"\",\r\n\"phone_number\":\"2078066015\",\r\n\"whats_app_number\":\"2078066015\",\r\n\"house_owner_category\":\"\",\r\n\"live_time_values\":\"\",\r\n\"live_time_type\":\"\",\r\n\"house_owner_status\":\"\",\r\n\"customer_status\":\"1\",\r\n\"assigned_by\":\"\",\r\n\"customer_user_id\":\"\",\r\n\"add_date\":\"\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "search",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"first_name\":\"ແລ່ມໂບ້\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/name",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"name"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"customer_id\": \"\",\r\n\"profile_picture\":\"bo.png\",\r\n\"gender\":\"ທ້າວ\",\r\n\"first_name\":\"Lambo\",\r\n\"last_name\":\"pkd\",\r\n\"full_name\":\"ທ້າວ Lambo pkd\",\r\n\"age\":\"19\",\r\n\"date_birth\":\"2004-04-17\",\r\n\"customer_nationality\":\"\",\r\n\"customer_job\":\"\",\r\n\"customer_job_location\":\"\",\r\n\"province_id\":\"1\",\r\n\"district_id\":\"1\",\r\n\"village_namge\":\"ໂນນຂີ້ເຫຼັກ\",\r\n\"house_unit\":\"\",\r\n\"house_number\":\"\",\r\n\"phone_number\":\"2078066015\",\r\n\"whats_app_number\":\"2078066015\",\r\n\"house_owner_category\":\"\",\r\n\"live_time_values\":\"\",\r\n\"live_time_type\":\"\",\r\n\"house_owner_status\":\"\",\r\n\"add_by\":\"\",\r\n\"customer_user_id\":\"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/phone",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"phone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer_id\":\"85\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/delete",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "asset_credit_customer",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "    {\r\n\"asset_type_customer_name\":\"bike\",\r\n\"asset_detail\":\"for sell\",\r\n\"asset_credit_values\":\"32000000\",\r\n\"limit_credit_values\":\"320000000\",\r\n\"currency\":\"LAK\",\r\n\"asset_status\":\"2\",\r\n\"customer_id\":\"1\",\r\n\"add_by\":\"1\",\r\n\"evaluate_by\":\"1\",\r\n\"evaluate_date\":\"2024-03-01\",\r\n\"guarantee_picture\":\"bo.png\"\r\n\r\n    }\r\n          ",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"asset_credit_customer_id\":\"184\",\r\n    \"asset_type_customer_name\":\"super car\",\r\n    \"asset_detail\":\"nice test\",\r\n    \"asset_credit_values\":\"100\",\r\n    \"currency\": \"USD\",\r\n    \"guarantee_picture\":\"test.jpg\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/update",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"asset_credit_customer_id\":\"182\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/delete",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "search",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n    \"first_name\":\"ຄຳພັນ\"\r\n    // \"last_name\":\"\"\r\n    // \"age\":\"\"\r\n    // \"phone_number\":\"\"\r\n    // \"whats_app_number\":\"\"\r\n    // \"village_namge\":\"\"\r\n    // \"districts_name\":\"\"\r\n    // \"province_name\":\"\"\r\n    // \"asset_credit_values\":\"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/search",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"search"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "account",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"account_number\":\"11111111\",\r\n    \"CIF_id\":\"1\",\r\n     \"customer_id\":\"2\",\r\n     \"account_balance\":\"100000\",\r\n    \"account_by_branch\":\"1\" ,\r\n     \"account_type_id\":\"1\",\r\n    \"account_status\":\"1\" ,\r\n     \"currency_code\":\"USD\",\r\n     \"create_by\":\"1\",\r\n     \"date_update\":\"2024-03-23\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/account/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"account",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/loan/account/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"account",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_by_account_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"account_id\":\"55\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/account/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"account",
+												"id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_by_account_number",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"account_number\":\"0001\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/account/number",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"account",
+												"number"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				}
@@ -521,6 +1428,478 @@
 								}
 							},
 							"response": []
+						}
+					]
+				},
+				{
+					"name": "loan_module",
+					"item": [
+						{
+							"name": "customer",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"profile_picture\":\"bo.png\",\r\n\"gender\":\"ທ້າວ\",\r\n\"first_name\":\"ແລ່ມໂບ້\",\r\n\"last_name\":\"ຜຸຍຄຳແດງ\",\r\n\"full_name\":\"ທ້າວ ແລ່ມໂບ້ ຜຸຍຄຳແດງ\",\r\n\"age\":\"19\",\r\n\"date_birth\":\"2004-04-17\",\r\n\"customer_nationality\":\"\",\r\n\"customer_job\":\"\",\r\n\"customer_job_location\":\"\",\r\n\"province_id\":\"1\",\r\n\"district_id\":\"1\",\r\n\"village_namge\":\"ໂນນຂີ້ເຫຼັກ\",\r\n\"house_unit\":\"\",\r\n\"house_number\":\"\",\r\n\"phone_number\":\"2078066015\",\r\n\"whats_app_number\":\"2078066015\",\r\n\"house_owner_category\":\"\",\r\n\"live_time_values\":\"\",\r\n\"live_time_type\":\"\",\r\n\"house_owner_status\":\"\",\r\n\"customer_status\":\"1\",\r\n\"assigned_by\":\"\",\r\n\"customer_user_id\":\"\",\r\n\"add_date\":\"\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read_by_name",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"first_name\":\"ແລ່ມໂບ້\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/name",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"name"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read_by_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer_id\":\"222222\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read_by_phone",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"phone_number\":\"020\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/phone",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"phone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"customer_id\": \"\",\r\n\"profile_picture\":\"bo.png\",\r\n\"gender\":\"ທ້າວ\",\r\n\"first_name\":\"Lambo\",\r\n\"last_name\":\"pkd\",\r\n\"full_name\":\"ທ້າວ Lambo pkd\",\r\n\"age\":\"19\",\r\n\"date_birth\":\"2004-04-17\",\r\n\"customer_nationality\":\"\",\r\n\"customer_job\":\"\",\r\n\"customer_job_location\":\"\",\r\n\"province_id\":\"1\",\r\n\"district_id\":\"1\",\r\n\"village_namge\":\"ໂນນຂີ້ເຫຼັກ\",\r\n\"house_unit\":\"\",\r\n\"house_number\":\"\",\r\n\"phone_number\":\"2078066015\",\r\n\"whats_app_number\":\"2078066015\",\r\n\"house_owner_category\":\"\",\r\n\"live_time_values\":\"\",\r\n\"live_time_type\":\"\",\r\n\"house_owner_status\":\"\",\r\n\"add_by\":\"\",\r\n\"customer_user_id\":\"\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/phone",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"phone"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer_id\":\"85\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/delete",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "asset_credit_customer",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "    {\r\n\"asset_type_customer_name\":\"bike\",\r\n\"asset_detail\":\"for sell\",\r\n\"asset_credit_values\":\"32000000\",\r\n\"limit_credit_values\":\"320000000\",\r\n\"currency\":\"LAK\",\r\n\"asset_status\":\"2\",\r\n\"customer_id\":\"1\",\r\n\"add_by\":\"1\",\r\n\"evaluate_by\":\"1\",\r\n\"evaluate_date\":\"2024-03-01\",\r\n\"guarantee_picture\":\"bo.png\"\r\n\r\n    }\r\n          ",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "read",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"asset_credit_customer_id\":\"184\",\r\n    \"asset_type_customer_name\":\"super car\",\r\n    \"asset_detail\":\"nice test\",\r\n    \"asset_credit_values\":\"100\",\r\n    \"currency\": \"USD\",\r\n    \"guarantee_picture\":\"test.jpg\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/update",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"asset_credit_customer_id\":\"182\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/delete",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "customer_data",
+							"item": [
+								{
+									"name": "search",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    // \"first_name\":\"ນົງພະງາ \"\r\n    // \"last_name\":\"\"\r\n    // \"age\":\"\"\r\n    \"phone_number\":\"020 29809343\"\r\n    // \"whats_app_number\":\"\"\r\n    // \"village_namge\":\"\"\r\n    // \"districts_name\":\"\"\r\n    // \"province_name\":\"\"\r\n    // \"picture_identified_name\":\"\"\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/data/search",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"data",
+												"search"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "account",
+							"item": []
 						}
 					]
 				}
