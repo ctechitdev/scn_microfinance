@@ -157,49 +157,27 @@ const get_customerByphone = (request, response) => {
 };
 
 const search_customer = (request, response) => {
-  const {
-    first_name,
-    last_name,
-    age,
-    phone_number,
-    whats_app_number,
-    village_namge,
-    districts_name,
-    province_name,
-    picture_identified_name,
-  } = request.body;
+  const {  search_box  } = request.body;
+
+  const search_value = "%"+search_box+"%";
+
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
       response.json({ resultCode: "token error" });
     } else {
-      connected.query(
-        queries.search_customer,
-        [
-          first_name,
-          last_name,
-          age,
-          phone_number,
-          whats_app_number,
-          village_namge,
-          districts_name,
-          province_name,
-        ],
+      connected.query(  queries.search_customer, [ search_value , search_value ],
         (error, results) => {
+
           if (error) throw error;
           if (results.length) {
-            response.json(results);
+           
+              response.json(results);
+              
           } else {
-            connected.query(
-              queries.search_identified,
-              [picture_identified_name],
-              (error, results) => {
-                if (results.length) {
-                  response.json(results);
-                } else {
-                  response.json({ resultCode: "search error" });
-                }
-              }
-            );
+
+            response.json({ resultCode: "search error" });
+
+
           }
         }
       );

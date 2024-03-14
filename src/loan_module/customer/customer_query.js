@@ -4,7 +4,13 @@ const get_customerName = "select * from tbl_customer where first_name = ?";
 const get_customerByPhone = "select * from tbl_customer where phone_number = ?"
 
 const search_customer =
- "select first_name,last_name,age,phone_number,whats_app_number,village_namge, districts_name, province_name from tbl_customer  left join tbl_districts on tbl_customer.district_id = tbl_districts.districts_id left join tbl_province on tbl_customer.province_id = tbl_province.province_id where first_name =? or last_name=? or age=? or phone_number=? or whats_app_number=? or village_namge=? or districts_name=? or province_name =?";
+ "select customer_id,full_name,first_name,last_name,age,phone_number,whats_app_number,village_namge, districts_name, province_name " + 
+ " from tbl_customer " +
+ "left join tbl_districts on tbl_customer.district_id = tbl_districts.districts_id " +
+ " left join tbl_province on tbl_customer.province_id = tbl_province.province_id  " +
+ " where full_name like ? or phone_number like ? ";
+
+
 const search_identified = "select first_name,last_name,age,phone_number,whats_app_number,village_namge, districts_name, province_name,picture_identified_name from tbl_picture_identified  left join tbl_customer on tbl_picture_identified.customer_id=tbl_customer.customer_id left join tbl_districts on tbl_customer.district_id = tbl_districts.districts_id left join tbl_province on tbl_customer.province_id = tbl_province.province_id where picture_identified_name=?";
 
 const get_customer = "select customer_id, profile_picture, concat(gender,' ',first_name,' ',last_name) as full_name,age, village_namge,districts_name,province_name from tbl_customer left join tbl_districts on tbl_customer.district_id = tbl_districts.districts_id left join tbl_province on tbl_customer.province_id = tbl_province.province_id";
