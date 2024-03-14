@@ -160,6 +160,35 @@ const update_asset_credit = (request, response) => {
   });
 };
 
+
+
+const update_check_asset_credit_customer = (request, response) => {
+  const {
+    asset_credit_customer_id,
+    limit_credit_values,
+    currency
+  } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error" });
+    } else {
+      connected.query(
+        queries.update_check_asset_credit_customer,
+        [
+          limit_credit_values,
+          currency,
+          asset_credit_customer_id,
+        ],
+        (error, results) => {
+          if (error) throw error;
+          response.json({ resultsCode: "ອັບເດດຂໍ້ມູນການກວດສອບສຳເລັດ" });
+        }
+      );
+    }
+  });
+};
+
 //delete customer
 const delete_asset_credit = (request, response) => {
   const { asset_credit_customer_id } = request.body;
@@ -199,5 +228,6 @@ module.exports = {
   get_asset_credit,
   search,
   update_asset_credit,
+  update_check_asset_credit_customer,
   delete_asset_credit,
 };

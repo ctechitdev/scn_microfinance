@@ -8,6 +8,7 @@ const update_asset_credit =
   "update tbl_asset_credit_customer set asset_type_customer_name=?,asset_detail=?, asset_credit_values=?,  currency=?,guarantee_picture = ? where asset_credit_customer_id = ?";
 const get_asset_credit_ById =
   "select * from tbl_asset_credit_customer where asset_credit_customer_id=? ";
+const update_check_asset_credit_customer = "update tbl_asset_credit_customer set limit_credit_values =?,currency=? where asset_credit_customer_id = ? "
 const delete_asset_credit =
   "delete from tbl_asset_credit_customer where asset_credit_customer_id =?";
 
@@ -18,5 +19,6 @@ module.exports = {
   update_asset_credit,
   get_asset_credit_ById,
   delete_asset_credit,
+  update_check_asset_credit_customer
 };
  

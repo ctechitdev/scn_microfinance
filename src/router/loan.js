@@ -13,6 +13,13 @@ router.delete('/customer/delete', verifyToken,customer_controller.delete_custome
 router.post('/customer/name', verifyToken,customer_controller.get_customerByName)
 router.post('/customer/phone', verifyToken,customer_controller.get_customerByphone)
 router.post('/customer/search', verifyToken,customer_controller.search_customer)
+
+//guarantor customer
+const customer_guarantor_controller = require("../loan_module/customer_quarantor/customer_guarantor_controller")
+router.post('/customer/guarantor/add', verifyToken,customer_guarantor_controller.create_customer_guarantor)
+router.post('/customer/guarantor/search', verifyToken,customer_guarantor_controller.search_customer_guarantor)
+
+
 //account
 const account_controller = require("../loan_module/account/account_controller")
 router.post('/account/add', verifyToken,account_controller.create_account)
@@ -37,6 +44,7 @@ router.post('/assetCredit/add', verifyToken,asset_credit_controller.create_asset
 router.post('/assetCredit/get', verifyToken,asset_credit_controller.get_asset_credit)
 router.post('/assetCredit/search', verifyToken,asset_credit_controller.search)
 router.put('/assetCredit/update', verifyToken,asset_credit_controller.update_asset_credit)
+router.put('/assetCredit/update/checking', verifyToken,asset_credit_controller.update_check_asset_credit_customer)
 router.delete('/assetCredit/delete', verifyToken,asset_credit_controller.delete_asset_credit)
 
 
