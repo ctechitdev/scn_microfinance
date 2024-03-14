@@ -113,6 +113,8 @@ const search = (request, response) => {
   });
 };
 
+
+
 const update_asset_credit = (request, response) => {
   const {
     asset_credit_customer_id,
