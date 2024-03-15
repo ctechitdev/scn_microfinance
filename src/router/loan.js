@@ -18,6 +18,8 @@ router.post('/customer/search', verifyToken,customer_controller.search_customer)
 const customer_guarantor_controller = require("../loan_module/customer_quarantor/customer_guarantor_controller")
 router.post('/customer/guarantor/add', verifyToken,customer_guarantor_controller.create_customer_guarantor)
 router.post('/customer/guarantor/search', verifyToken,customer_guarantor_controller.search_customer_guarantor)
+router.put('/customer/guarantor/update', verifyToken,customer_guarantor_controller.update_customer_guarantor)
+router.delete('/customer/guarantor/delete', verifyToken,customer_guarantor_controller.delete_customer_guarantor)
 
 
 //account
@@ -55,6 +57,11 @@ router.post('/currency/get', verifyToken,currency_controller.get_currency)
 router.post('/currency/id', verifyToken,currency_controller.get_currencyById)
 router.put('/currency/update', verifyToken,currency_controller.update_currency)
 router.delete('/currency/delete', verifyToken,currency_controller.delete_currency)
+
+//loan contract
+const loan_contract_controller = require("../loan_module/loan_contract/loan_contract_controller")
+router.post('/loan/contract/add', verifyToken,loan_contract_controller.create_loan_contract)
+router.post('/loan/contract/search', verifyToken,loan_contract_controller.search_loan_contract)
 
 function verifyToken(req, res, next) {
   // Get auth header value

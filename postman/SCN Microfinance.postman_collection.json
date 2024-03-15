@@ -1288,6 +1288,128 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n          \"customer_guarantor_id\":\"87\",\r\n          \"guarantor_profile_picture\":\"jj.png\",\r\n          \"guarantor_full_name\":\"lambo der\",\r\n          \"gender\":\"ທ້າວ\",\r\n          \"age\":\"19\",\r\n          \"date_birth\":\"2004-01-01\",\r\n          \"guarantor_nationality\":\"ລາວ\",\r\n          \"guarantor_job\":\"\",\r\n          \"guarantor_job_location\":\"\",\r\n          \"province_id\":\"1\",\r\n          \"district_id\":\"1\",\r\n          \"village_namge\":\"ທົ່ງປົ່ງ\",\r\n          \"house_unit\":\"40\",\r\n          \"house_number\":\"666\",\r\n          \"phone_number\":\"2078066015\",\r\n          \"whats_app_number\":\"2078066015\",\r\n          \"house_owner_category\":\"ບ້ານເຊົ່າ\",\r\n          \"live_time_values\":\"20\",\r\n          \"live_time_type\":\"2000-01-11\",\r\n          \"house_owner_status\":\"ບ້ານເຊົ່າ\",\r\n          \"customer_id\":\"5\"\r\n\r\n          \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/guarantor/update",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"guarantor",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer_guarantor_id\":\"88\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/guarantor/delete",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"guarantor",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "loan_contract",
+							"item": [
+								{
+									"name": "add",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n    \"loan_contract_number\":\"0083\",  \r\n    \"loan_request_id\":\"1\",\r\n    \"customer_id\":\"1\",\r\n    \"guarantor_id\":\"1\",\r\n    \"loan_fee_values\":\"1000000\",\r\n    \"evaluate_asset_fee_values\":\"100000\",\r\n    \"contract_status\":\"1\",\r\n    \"contract_date\":\"2024-01-01\",\r\n    \"add_by\":\"1\"\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/loan/contract/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"loan",
+												"contract",
+												"add"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						}
