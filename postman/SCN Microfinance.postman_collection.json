@@ -1410,6 +1410,44 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "search_just_test",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"search_box\":\"0004\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/search/contract",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"search",
+												"contract"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						}

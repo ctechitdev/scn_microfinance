@@ -1,6 +1,5 @@
 //call express function
 const { Router } = require('express');
-
 //set router
 const router = Router();
 
@@ -17,7 +16,7 @@ router.post('/customer/search', verifyToken,customer_controller.search_customer)
 //guarantor customer
 const customer_guarantor_controller = require("../loan_module/customer_quarantor/customer_guarantor_controller")
 router.post('/customer/guarantor/add', verifyToken,customer_guarantor_controller.create_customer_guarantor)
-router.post('/customer/guarantor/search', verifyToken,customer_guarantor_controller.search_customer_guarantor)
+// router.post('/customer/guarantor/search', verifyToken,customer_guarantor_controller.search_customer_guarantor)
 router.put('/customer/guarantor/update', verifyToken,customer_guarantor_controller.update_customer_guarantor)
 router.delete('/customer/guarantor/delete', verifyToken,customer_guarantor_controller.delete_customer_guarantor)
 
@@ -25,10 +24,10 @@ router.delete('/customer/guarantor/delete', verifyToken,customer_guarantor_contr
 //account
 const account_controller = require("../loan_module/account/account_controller")
 router.post('/account/add', verifyToken,account_controller.create_account)
-router.post('/account/get', verifyToken,account_controller.get_account) // no left join
-router.post('/account/id', verifyToken,account_controller.get_account_Id) // no left join
-router.post('/account/number', verifyToken,account_controller.get_account_number) // no left join
-router.post('/account/firstname', verifyToken,account_controller.get_account_customer_firstname) // no left join / not yet
+router.post('/account/get', verifyToken,account_controller.get_account)
+router.post('/account/id', verifyToken,account_controller.get_account_Id) 
+router.post('/account/number', verifyToken,account_controller.get_account_number) 
+router.post('/account/firstname', verifyToken,account_controller.get_account_customer_firstname) 
 
 
 //asset type customer
@@ -60,8 +59,7 @@ router.delete('/currency/delete', verifyToken,currency_controller.delete_currenc
 
 //loan contract
 const loan_contract_controller = require("../loan_module/loan_contract/loan_contract_controller")
-router.post('/loan/contract/add', verifyToken,loan_contract_controller.create_loan_contract)
-router.post('/loan/contract/search', verifyToken,loan_contract_controller.search_loan_contract)
+router.post('/search/contract', verifyToken,loan_contract_controller.search_loan_contract)
 
 function verifyToken(req, res, next) {
   // Get auth header value
