@@ -87,6 +87,35 @@ const create_customer_guarantor = (request, response) => {
 };
 
 
+const search_customer_guarantor = (request, response) => {
+  const {  search_box  } = request.body;
+
+  const search_value = "%"+search_box+"%";
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error" });
+    } else {
+      connected.query(  queries.search_customer_guarantor, [ search_value , search_value ],
+        (error, results) => {
+
+          if (error) throw error;
+          if (results.length) {
+           
+              response.json(results);
+              
+          } else {
+
+            response.json({ resultCode: "search error" });
+
+
+          }
+        }
+      );
+    }
+  });
+};
+
 
 const update_customer_guarantor = (request, response) => {
   const {
@@ -199,7 +228,7 @@ const delete_customer_guarantor = (request, response) => {
 
 module.exports = {
   create_customer_guarantor,
-  // search_customer_guarantor,
+  search_customer_guarantor,
   update_customer_guarantor,
   delete_customer_guarantor
 };

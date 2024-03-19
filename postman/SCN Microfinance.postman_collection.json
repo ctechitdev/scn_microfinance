@@ -1412,7 +1412,7 @@
 									"response": []
 								},
 								{
-									"name": "search_just_test",
+									"name": "search_customer_add_contract",
 									"request": {
 										"auth": {
 											"type": "bearer",
@@ -1428,7 +1428,46 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"search_box\":\"0004\"\r\n}",
+											"raw": "{\r\n    \"search_box\":\"911\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/search/contract/customer",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"search",
+												"contract",
+												"customer"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "search_loan_contract",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"search_box\":\"599\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1443,6 +1482,82 @@
 											"path": [
 												"loan",
 												"search",
+												"contract"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"loan_contract_id\":\"78\",\r\n    \"customer_id\":\"2\",\r\n    \"loan_request_id\":\"2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/update/contract",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"update",
+												"contract"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"loan_contract_id\":\"78\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/delete/contract",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"delete",
 												"contract"
 											]
 										}

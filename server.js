@@ -8,9 +8,6 @@ const router_loan = require("./src/router/loan");
 const app = express();
 const port = 5050;
 
-// CORS
-var cors = require('cors');
-app.use(cors());
 
 app.use(express.json());
 
