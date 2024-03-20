@@ -23,6 +23,7 @@ router.put('/holiday/update', verifyToken,holiday_controller.update_holiday)
 router.delete('/holiday/delete',verifyToken, holiday_controller.delete_holiday)
 
 
+
 // holiday category
 const holiday_category_controller = require("../master_data_module/holiday_category/holiday_category_controller");
 router.post('/holidaycate/add',verifyToken, holiday_category_controller.create_holidaycate)
@@ -31,12 +32,19 @@ router.post('/holidaycate/id',verifyToken, holiday_category_controller.get_holid
 router.put('/holidaycate/update',verifyToken,holiday_category_controller.update_holidaycate)
 // router.delete('/holidaycate/delete', holiday_category_controller.delete_holidaycate)
 
+//holiday
+const header_title_controller = require("../master_data_module/header_title/header_title_controller")
+router.post('/header/title/add',verifyToken, header_title_controller.add_header_title);
+router.post('/header/title/get',verifyToken, header_title_controller.get_header_title);
+router.post('/header/title/id',verifyToken, header_title_controller.get_header_title_id);
+router.put('/header/title/update',verifyToken, header_title_controller.update_header_title);
+
 // roles
 const roles_controller = require("../master_data_module/roles/roles_controller");
-router.post('/role/add',verifyToken, roles_controller.create_role) //T
-router.post('/role/get',verifyToken, roles_controller.get_role)  //T
-router.post('/role/id',verifyToken, roles_controller.get_roleById) //T
-router.put('/role/update', verifyToken,roles_controller.update_role) //T
+router.post('/role/add',verifyToken, roles_controller.create_role) 
+router.post('/role/get',verifyToken, roles_controller.get_role)  
+router.post('/role/id',verifyToken, roles_controller.get_roleById) 
+router.put('/role/update', verifyToken,roles_controller.update_role) 
 router.delete('/role/delete',verifyToken, roles_controller.delete_role)
 
 // route list function
@@ -49,8 +57,8 @@ router.delete('/functionpage/delete',verifyToken, func_page_controller.delete_fu
 
 //show user
 const show_user_controller = require('../user/show_user/show_user_controller');
-router.post('/user/show',verifyToken,show_user_controller.show_user);
-router.post('/user/search',verifyToken,show_user_controller.show_userByData);
+router.post('/user/search',verifyToken,show_user_controller.search_user);
+router.delete('/user/delete',verifyToken,show_user_controller.delete_user);
 // update user
 const user_update_controller = require('../user/update/user_update_controller');
 router.put('/user/update',verifyToken,user_update_controller.update_user);

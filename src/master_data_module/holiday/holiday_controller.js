@@ -9,11 +9,10 @@ const { response } = require("express");
 
 const secretkey = "CtecMicrofinance";
 
-
-// Create holiday
+// Create depart
 const create_holiday = (request, response) => {
   //ຮັບພາລາມິດເຕີໃນ postman ເຂົ້າມາ
-  const { holiday_name,holiday_category_id, holiday_date } = request.body;
+  const { holiday_name } = request.body;
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
       response.json({ resultCode: "token error" })
@@ -21,17 +20,18 @@ const create_holiday = (request, response) => {
       connected.query(queries.check_holidayByName, [holiday_name], (error, results) => {
         if (error) throw error;
         if (results.length) {
-          response.json({ resultCode: "ມີວັນພັກນີ້ແລ້ວ" })
+          response.json({ resultCode: "ມີ holiday ນີ້ແລ້ວ !" })
         } else {
-          connected.query(queries.add_holidayByname, [holiday_name,holiday_category_id, holiday_date], (error, results) => {
-            if (error) throw error;
-            response.json({ resultCode: "ເພີ່ມວັນພັກສຳເລັດ" })
+          connected.query(queries.add_holiday,[holiday_name],(error,results)=>{
+            if(error)throw error;
+          response.json({ resultCode: "ເພີ່ມ holiday ສຳເລັດ" })
           })
         }
       })
     }
   })
 }
+
 // get holiday or read holiday
 const get_holiday = (request, response) => {
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
@@ -71,19 +71,19 @@ const get_holidayById = (request, response) => {
 
 // update holiday
 const update_holiday = (request, response) => {
-  const { holiday_id, holiday_name,holiday_date } = request.body;
+  const { holiday_name,holiday_date,holiday_id } = request.body;
 
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
       response.json({ resultCode: "token error" })
     } else {
-      connected.query(queries.get_holidayById, [holiday_id], (error, results) => {
+      connected.query(queries.check_holiday_id, [holiday_id], (error, results) => {
         const noholidayFound = !results.length;
         if (noholidayFound) {
           if (error) throw error;
           response.json({ resultsCode: "ບໍ່ສາມາດແກ້ໄຂວັນພັກໄດ້" });
         } else {
-          connected.query(queries.update_holiday, [holiday_name, holiday_id,holiday_date], (error, results) => {
+          connected.query(queries.update_holiday, [holiday_name,holiday_date,holiday_id], (error, results) => {
             if (error) throw error;
             response.json({ resultsCode: "ແກ້ໄຂວັນພັກສຳເລັດ" });
           })

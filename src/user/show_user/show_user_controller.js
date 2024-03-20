@@ -8,34 +8,25 @@ const { response } = require("express");
 
 const secretkey = "CtecMicrofinance";
 
-const show_user = (request, response) => {
-  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
-    if (token_error) {
-      response.json({ resultCode: "token error " });
-    } else {
-      connected.query(queries.active, (error, results) => {
-        if (error) throw error;
-        response.json(results);
-      });
-    }
-  });
-};
-const show_userByData = (request, response) => {
-  const { user_id, full_name, user_name, depart_name, role_name} = request.body;
+
+const search_user = (request, response) => {
+  const { search_box } = request.body;
+
+  const search_value = "%" + search_box + "%";
 
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
-      response.json({ resultCode: "token error " });
+      response.json({ resultCode: "token error" });
     } else {
       connected.query(
-        queries.show_userByData,
-        [user_id, full_name, user_name, depart_name, role_name],
+        queries.search_user,
+        [search_value, search_value],
         (error, results) => {
           if (error) throw error;
           if (results.length) {
             response.json(results);
           } else {
-            response.json({ resultCode: "ບໍ່ພົບ user ນີ້ !" });
+            response.json({ resultCode: "search error" });
           }
         }
       );
@@ -43,8 +34,32 @@ const show_userByData = (request, response) => {
   });
 };
 
+  // update ປະເພດວັນພັກ
+  const delete_user = (request, response) => {
+    const { user_id } = request.body;
+  
+    jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+      if (token_error) {
+        response.json({ resultCode: "token error" })
+      } else {
+        connected.query(queries.get_user, [user_id], (error, results) => {
+          const notFound = !results.length;
+          if (notFound) {
+            if (error) throw error;
+            response.json({ resultsCode: "ບໍ່ສາມາດລົບ user ໄດ້" });
+          } else {
+            connected.query(queries.delete_user, [user_id], (error, results) => {
+            if (error) throw error;
+            response.json({ resultsCode: "ລົບ user ສຳເລັດ" });
+            })
+          }
+        });
+      }
+    });
+  };
+
 // router is in master data route
 module.exports = {
-  show_user,
-  show_userByData,
+  delete_user,
+  search_user,
 };
