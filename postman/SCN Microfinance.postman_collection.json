@@ -1008,7 +1008,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"first_name\":\"ແລ່ມໂບ້\"\r\n}",
+											"raw": "{\r\n    \"search_box\":\"ແລ່ມໂບ້\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1016,14 +1016,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{local_dev}}/loan/customer/name",
+											"raw": "{{local_dev}}/loan/customer/search",
 											"host": [
 												"{{local_dev}}"
 											],
 											"path": [
 												"loan",
 												"customer",
-												"name"
+												"search"
 											]
 										}
 									},
@@ -1046,7 +1046,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\"customer_id\": \"\",\r\n\"profile_picture\":\"bo.png\",\r\n\"gender\":\"ທ້າວ\",\r\n\"first_name\":\"Lambo\",\r\n\"last_name\":\"pkd\",\r\n\"full_name\":\"ທ້າວ Lambo pkd\",\r\n\"age\":\"19\",\r\n\"date_birth\":\"2004-04-17\",\r\n\"customer_nationality\":\"\",\r\n\"customer_job\":\"\",\r\n\"customer_job_location\":\"\",\r\n\"province_id\":\"1\",\r\n\"district_id\":\"1\",\r\n\"village_namge\":\"ໂນນຂີ້ເຫຼັກ\",\r\n\"house_unit\":\"\",\r\n\"house_number\":\"\",\r\n\"phone_number\":\"2078066015\",\r\n\"whats_app_number\":\"2078066015\",\r\n\"house_owner_category\":\"\",\r\n\"live_time_values\":\"\",\r\n\"live_time_type\":\"\",\r\n\"house_owner_status\":\"\",\r\n\"add_by\":\"\",\r\n\"customer_user_id\":\"\"\r\n}",
+											"raw": "{\r\n\"customer_id\": \"88\",\r\n\"profile_picture\":\"bo.png\",\r\n\"gender\":\"ທ້າວ\",\r\n\"first_name\":\"Lambo\",\r\n\"last_name\":\"pkd\",\r\n\"age\":\"19\",\r\n\"date_birth\":\"2004-04-17\",\r\n\"customer_nationality\":\"\",\r\n\"customer_job\":\"\",\r\n\"customer_job_location\":\"\",\r\n\"province_id\":\"1\",\r\n\"district_id\":\"1\",\r\n\"village_namge\":\"ໂນນຂີ້ເຫຼັກ\",\r\n\"house_unit\":\"\",\r\n\"house_number\":\"\",\r\n\"phone_number\":\"2078066015\",\r\n\"whats_app_number\":\"2078066015\",\r\n\"house_owner_category\":\"\",\r\n\"live_time_values\":\"\",\r\n\"live_time_type\":\"\",\r\n\"house_owner_status\":\"\",\r\n\"add_by\":\"\",\r\n\"customer_user_id\":\"\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1054,14 +1054,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{local_dev}}/loan/customer/phone",
+											"raw": "{{local_dev}}/loan/customer/update",
 											"host": [
 												"{{local_dev}}"
 											],
 											"path": [
 												"loan",
 												"customer",
-												"phone"
+												"update"
 											]
 										}
 									},
@@ -1084,7 +1084,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"customer_id\":\"85\"\r\n}",
+											"raw": "{\r\n    \"customer_id\":\"88\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"

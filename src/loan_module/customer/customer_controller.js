@@ -16,7 +16,6 @@ const create_customer = (request, response) => {
     gender,
     first_name,
     last_name,
-    full_name,
     age,
     date_birth,
     customer_nationality,
@@ -60,7 +59,6 @@ const create_customer = (request, response) => {
                 gender,
                 first_name,
                 last_name,
-                full_name,
                 age,
                 date_birth,
                 customer_nationality,
@@ -94,67 +92,8 @@ const create_customer = (request, response) => {
     }
   });
 };
-// Get all customer fff
-const get_customer = (request, response) => {
-  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
-    if (token_error) {
-      response.json({ resultCode: "token error " });
-    } else {
-      connected.query(queries.get_customer, (error, results) => {
-        if (error) throw error;
-        response.json(results);
-      });
-    }
-  });
-};
 
-// Get customer by name
-const get_customerByName = (request, response) => {
-  const { first_name } = request.body;
 
-  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
-    if (token_error) {
-      response.json({ resultCode: "token error " });
-    } else {
-      connected.query(
-        queries.get_customerName,
-        [first_name],
-        (error, results) => {
-          if (error) throw error;
-          if (results.length) {
-            response.json(results);
-          } else {
-            response.json({ resultCode: "ບໍ່ພົບ customer ນີ້ !" });
-          }
-        }
-      );
-    }
-  });
-};
-
-// Get customer by phone
-const get_customerByphone = (request, response) => {
-  const { phone_number } = request.body;
-
-  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
-    if (token_error) {
-      response.json({ resultCode: "token error " });
-    } else {
-      connected.query(
-        queries.get_customerByPhone,
-        [phone_number],
-        (error, results) => {
-          if (error) throw error;
-          if (results.length) {
-            response.json(results);
-          } else {
-            response.json({ resultCode: "ບໍ່ພົບ customer ນີ້ !" });
-          }
-        }
-      );
-    }
-  });
-};
 
 const search_customer = (request, response) => {
   const {  search_box  } = request.body;
@@ -193,7 +132,6 @@ const update_customer = (request, response) => {
     gender,
     first_name,
     last_name,
-    full_name,
     age,
     date_birth,
     customer_nationality,
@@ -235,7 +173,6 @@ const update_customer = (request, response) => {
                 gender,
                 first_name,
                 last_name,
-                full_name,
                 age,
                 date_birth,
                 customer_nationality,
@@ -274,7 +211,7 @@ const delete_customer = (request, response) => {
       response.json({ resultCode: "token error" });
     } else {
       connected.query(
-        queries.check_loan_request,
+        queries.check_loan_request, //select * from tbl_loan_request where customer_id=?
         [customer_id],
         (error, results) => {
           if (error) throw error;
@@ -302,10 +239,7 @@ const delete_customer = (request, response) => {
 
 module.exports = {
   create_customer,
-  get_customer,
   search_customer,
-  get_customerByName,
-  get_customerByphone,
   update_customer,
   delete_customer,
 };

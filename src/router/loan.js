@@ -3,14 +3,11 @@ const { Router } = require('express');
 //set router
 const router = Router();
 
-// customer
+// customer finish...
 const customer_controller = require("../loan_module/customer/customer_controller")
 router.post('/customer/add', verifyToken,customer_controller.create_customer)
-router.post('/customer/get', verifyToken,customer_controller.get_customer)
 router.put('/customer/update', verifyToken,customer_controller.update_customer)
 router.delete('/customer/delete', verifyToken,customer_controller.delete_customer)
-router.post('/customer/name', verifyToken,customer_controller.get_customerByName)
-router.post('/customer/phone', verifyToken,customer_controller.get_customerByphone)
 router.post('/customer/search', verifyToken,customer_controller.search_customer)
 
 //guarantor customer

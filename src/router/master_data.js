@@ -79,7 +79,9 @@ router.post('/districts/id',verifyToken,district_controller.get_districts_id);
 router.put('/districts/update',verifyToken,district_controller.update_districts);
 router.delete('/districts/delete',verifyToken,district_controller.delete_districts);
 
-
+// sub_header
+const sub_header_controller = require('../master_data_module/sub_header/sub_header_controller');
+router.post('/sub-header/add',verifyToken,sub_header_controller.create_sub_header);
 
 
 
