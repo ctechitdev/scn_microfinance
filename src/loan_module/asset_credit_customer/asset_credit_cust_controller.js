@@ -8,7 +8,7 @@ const { response } = require("express");
 
 const secretkey = "CtecMicrofinance";
 
-// Create asset_type
+// Create asset_credit_customer
 const create_asset_credit = (request, response) => {
   //ຮັບພາລາມິດເຕີໃນ postman ເຂົ້າມາ
   const {
@@ -22,8 +22,7 @@ const create_asset_credit = (request, response) => {
     add_by,
     evaluate_by,
     evaluate_date,
-    guarantee_picture,
-    location_point,
+    guarantee_picture
   } = request.body;
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
@@ -42,8 +41,7 @@ const create_asset_credit = (request, response) => {
           add_by,
           evaluate_by,
           evaluate_date,
-          guarantee_picture,
-          location_point,
+          guarantee_picture
         ],
         (error, results) => {
           if (error) {
@@ -56,6 +54,7 @@ const create_asset_credit = (request, response) => {
     }
   });
 };
+
 // Get all asset credit customer
 const get_asset_credit = (request, response) => {
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
@@ -69,43 +68,30 @@ const get_asset_credit = (request, response) => {
     }
   });
 };
-//search
-const search = (request, response) => {
-  const {
-    first_name,
-    last_name,
-    age,
-    phone_number,
-    whats_app_number,
-    village_namge,
-    districts_name,
-    province_name,
-    asset_credit_values,
-  } = request.body;
+
+// search_asset_credit
+const search_asset_credit = (request, response) => {
+  const {  search_box  } = request.body;
+
+  const search_value = "%"+search_box+"%";
 
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
-      response.json({ resultCode: "token error " });
+      response.json({ resultCode: "token error" });
     } else {
-      connected.query(
-        queries.search,
-        [
-          first_name,
-          last_name,
-          age,
-          phone_number,
-          whats_app_number,
-          village_namge,
-          districts_name,
-          province_name,
-          asset_credit_values,
-        ],
+      connected.query(  queries.search_asset_credit, [ search_value , search_value ],
         (error, results) => {
+
           if (error) throw error;
           if (results.length) {
-            response.json(results);
+           
+              response.json(results);
+              
           } else {
-            response.json({ resultCode: "ບໍ່ພົບສັບສິນລູກຄ້ານີ້ !" });
+
+            response.json({ resultCode: "search error" });
+
+
           }
         }
       );
@@ -114,13 +100,13 @@ const search = (request, response) => {
 };
 
 
-
 const update_asset_credit = (request, response) => {
   const {
     asset_credit_customer_id,
     asset_type_customer_name,
     asset_detail,
     asset_credit_values,
+    limit_credit_values,
     currency,
     guarantee_picture,
   } = request.body;
@@ -144,6 +130,7 @@ const update_asset_credit = (request, response) => {
                 asset_type_customer_name,
                 asset_detail,
                 asset_credit_values,
+                limit_credit_values,
                 currency,
                 guarantee_picture,
                 asset_credit_customer_id,
@@ -160,34 +147,25 @@ const update_asset_credit = (request, response) => {
   });
 };
 
+// const update_check_asset_credit_customer = (request, response) => {
+//   const { asset_credit_customer_id,asset_credit_values, limit_credit_values, currency } =
+//     request.body;
 
-
-const update_check_asset_credit_customer = (request, response) => {
-  const {
-    asset_credit_customer_id,
-    limit_credit_values,
-    currency
-  } = request.body;
-
-  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
-    if (token_error) {
-      response.json({ resultCode: "token error" });
-    } else {
-      connected.query(
-        queries.update_check_asset_credit_customer,
-        [
-          limit_credit_values,
-          currency,
-          asset_credit_customer_id,
-        ],
-        (error, results) => {
-          if (error) throw error;
-          response.json({ resultsCode: "ອັບເດດຂໍ້ມູນການກວດສອບສຳເລັດ" });
-        }
-      );
-    }
-  });
-};
+//   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+//     if (token_error) {
+//       response.json({ resultCode: "token error" });
+//     } else {
+//       connected.query(
+//         queries.update_check_asset_credit_customer,
+//         [asset_credit_values,limit_credit_values, currency, asset_credit_customer_id],
+//         (error, results) => {
+//           if (error) throw error;
+//           response.json({ resultsCode: "ອັບເດດຂໍ້ມູນການກວດສອບສຳເລັດ" });
+//         }
+//       );
+//     }
+//   });
+// };
 
 //delete customer
 const delete_asset_credit = (request, response) => {
@@ -226,8 +204,8 @@ const delete_asset_credit = (request, response) => {
 module.exports = {
   create_asset_credit,
   get_asset_credit,
-  search,
   update_asset_credit,
-  update_check_asset_credit_customer,
+  // update_check_asset_credit_customer,
   delete_asset_credit,
+  search_asset_credit,
 };

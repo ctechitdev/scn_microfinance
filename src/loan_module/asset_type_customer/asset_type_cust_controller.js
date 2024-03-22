@@ -62,6 +62,35 @@ const get_asset_TypeById = (request, response) => {
     });
   };
 
+  const search_asset_type = (request, response) => {
+    const {  search_box  } = request.body;
+  
+    const search_value = "%"+search_box+"%";
+  
+    jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+      if (token_error) {
+        response.json({ resultCode: "token error" });
+      } else {
+        connected.query(  queries.search_asset_type, [ search_value,search_value],
+          (error, results) => {
+  
+            if (error) throw error;
+            if (results.length) {
+             
+                response.json(results);
+                
+            } else {
+  
+              response.json({ resultCode: "search error" });
+  
+  
+            }
+          }
+        );
+      }
+    });
+  };
+
 
   const update_asset_type = (request, response) => {
     const { asset_type_customer_name, asset_type_customer_id} = request.body;
@@ -97,15 +126,15 @@ const get_asset_TypeById = (request, response) => {
 
   // delete asset type
 const delete_asset_type = (request, response) => {
-  const { asset_type_customer_name } = request.body;
+  const { asset_type_customer_id } = request.body;
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
       response.json({ resultCode: "token error" })
     } else {
 
-      connected.query(queries.check_asset_type, [asset_type_customer_name], (error, results) => {
+      connected.query(queries.get_asset_TypeById, [asset_type_customer_id], (error, results) => {
         if (error) throw error;
-        if (results.length) {
+        if (!results.length) {
           // ຖ້າມີບໍ່ໃຫ້ມັນລົບ
 
           response.json({ resultCode: "ບໍ່ອະນຸຍາດໃຫ້ລົບ asset type ນີ້" })
@@ -115,7 +144,7 @@ const delete_asset_type = (request, response) => {
           //ຖ້າບໍ່ມີລະໃຫ້ລົບ
           //response.json({ resultCode: "allow to delete" })
           //ຄຳສັງລົບ
-          connected.query(queries.delete_asset_type, [asset_type_customer_name], (error, results) => {
+          connected.query(queries.delete_asset_type, [asset_type_customer_id], (error, results) => {
             if (error) {
               response.json({ resultCode: "delete error" })
             } else {
@@ -139,5 +168,6 @@ module.exports = {
     get_asset_type,
     get_asset_TypeById,
     update_asset_type,
-    delete_asset_type
+    delete_asset_type,
+    search_asset_type
   };

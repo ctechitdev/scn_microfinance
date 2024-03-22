@@ -8,7 +8,7 @@ const customer_controller = require("../loan_module/customer/customer_controller
 router.post('/customer/add', verifyToken,customer_controller.create_customer)
 router.put('/customer/update', verifyToken,customer_controller.update_customer)
 router.delete('/customer/delete', verifyToken,customer_controller.delete_customer)
-router.post('/customer/search', verifyToken,customer_controller.search_customer)
+router.post('/customer/search', verifyToken,customer_controller.search_customer) // ລົງຖະບຽນລູກຄ້າ, ຂໍ້ມູນລູກຄ້າ, ຊ່ອງຄົ້ນຂໍ້ຫາລູກຄ້າ ໃຊ້ຮ່ວມກັນ
 
 //guarantor customer
 const customer_guarantor_controller = require("../loan_module/customer_quarantor/customer_guarantor_controller")
@@ -32,6 +32,7 @@ const asset_type_controller = require("../loan_module/asset_type_customer/asset_
 router.post('/assetType/add', verifyToken,asset_type_controller.create_asset_type)
 router.post('/assetType/get', verifyToken,asset_type_controller.get_asset_type)
 router.post('/assetType/id', verifyToken,asset_type_controller.get_asset_TypeById)
+router.post('/assetType/search', verifyToken,asset_type_controller.search_asset_type) // ໃຊ້ສຳລັບຕໍ່ api ເພື່ອເພີ່ມຂໍ້ມູນໃນໜ້າ tbl_credit_customer ທີ່ເປັນ dropdown
 router.put('/assetType/update', verifyToken,asset_type_controller.update_asset_type)
 router.delete('/assetType/delete', verifyToken,asset_type_controller.delete_asset_type)
 
@@ -40,9 +41,9 @@ router.delete('/assetType/delete', verifyToken,asset_type_controller.delete_asse
 const asset_credit_controller = require("../loan_module/asset_credit_customer/asset_credit_cust_controller")
 router.post('/assetCredit/add', verifyToken,asset_credit_controller.create_asset_credit)
 router.post('/assetCredit/get', verifyToken,asset_credit_controller.get_asset_credit)
-router.post('/assetCredit/search', verifyToken,asset_credit_controller.search)
+router.post('/assetCredit/search', verifyToken,asset_credit_controller.search_asset_credit)
 router.put('/assetCredit/update', verifyToken,asset_credit_controller.update_asset_credit)
-router.put('/assetCredit/update/checking', verifyToken,asset_credit_controller.update_check_asset_credit_customer)
+// router.put('/assetCredit/update/checking', verifyToken,asset_credit_controller.update_check_asset_credit_customer)
 router.delete('/assetCredit/delete', verifyToken,asset_credit_controller.delete_asset_credit)
 
 
