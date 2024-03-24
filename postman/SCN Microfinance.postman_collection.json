@@ -1291,6 +1291,44 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "search",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"search_box\":\"ນົງພະງາ \"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/search",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"search"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						},
@@ -2028,7 +2066,7 @@
 							"name": "loan_request",
 							"item": [
 								{
-									"name": "search",
+									"name": "add",
 									"request": {
 										"auth": {
 											"type": "bearer",
@@ -2044,7 +2082,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"search_box\":\"ຈິດຕ້າ\"\r\n}",
+											"raw": "{\r\n    \"customer_id\":\"2\",\r\n    \"loan_values_request\":\"20000\", \r\n    \"currency\":\"USD\",\r\n    \"loan_request_status_name\":\"ອານຸມັດແລ້ວ\",\r\n    \"reason_request\":\"ເພື່ອການສຶກສາ\",\r\n    \"payment_loan_type_name\":\"ອາທິດ\",  \r\n    \"payment_loan_type_value\":\"30000\",\r\n    \"add_by\":\"1\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2052,14 +2090,14 @@
 											}
 										},
 										"url": {
-											"raw": "{{local_dev}}/loan/assetCredit/search",
+											"raw": "{{local_dev}}/loan/loanRequest/add",
 											"host": [
 												"{{local_dev}}"
 											],
 											"path": [
 												"loan",
-												"assetCredit",
-												"search"
+												"loanRequest",
+												"add"
 											]
 										}
 									},

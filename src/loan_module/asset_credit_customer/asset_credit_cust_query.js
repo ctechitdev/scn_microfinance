@@ -24,16 +24,7 @@ const update_check_asset_credit_customer =
   "update tbl_asset_credit_customer set limit_credit_values =?,currency=? where asset_credit_customer_id = ? ";
 const delete_asset_credit =
   "delete from tbl_asset_credit_customer where asset_credit_customer_id =?";
-const search_asset_credit = `select profile_picture,concat(gender,' ',first_name,' ',last_name) as full_name,age,
- village_namge,
- districts_name,
- province_name ,
- asset_credit_values,
- limit_credit_values from tbl_asset_credit_customer
- left join tbl_customer on tbl_asset_credit_customer.customer_id = tbl_customer.customer_id 
- left join tbl_districts on tbl_asset_credit_customer.customer_id=tbl_districts.districts_id 
- left join tbl_province on tbl_asset_credit_customer.customer_id=tbl_province.province_id
-  where first_name like ? or phone_number like ?`;
+const search_asset_credit = "select profile_picture,full_name,age,village_namge,districts_name,province_name ,asset_credit_values,limit_credit_values from tbl_asset_credit_customer left join tbl_customer on tbl_asset_credit_customer.customer_id = tbl_customer.customer_id left join tbl_districts on tbl_asset_credit_customer.customer_id=tbl_districts.districts_id left join tbl_province on tbl_asset_credit_customer.customer_id=tbl_province.province_id where full_name like ? or phone_number like ?";
 
 module.exports = {
   add_asset_credit,

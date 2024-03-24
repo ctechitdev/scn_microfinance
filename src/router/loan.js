@@ -62,6 +62,10 @@ router.post('/search/contract', verifyToken,loan_contract_controller.search_loan
 router.put('/update/contract', verifyToken,loan_contract_controller.update_loan_contract);
 router.delete('/delete/contract', verifyToken,loan_contract_controller.delete_loan_contract);
 
+//loan request
+const loan_request_controller = require("../loan_module/loan_request/loan_request_controller")
+router.post('/loanRequest/add', verifyToken,loan_request_controller.create_loan_request);
+
 function verifyToken(req, res, next) {
   // Get auth header value
   const bearerHeader = req.headers['authorization'];
