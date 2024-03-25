@@ -237,9 +237,40 @@ const delete_customer = (request, response) => {
   });
 };
 
+//update assign ໃຊ້ສຳລັບການກົດຮັບລູກຄ້າ
+
+const update_assigned = (request, response) => {
+  const {     
+    assigned_by,
+    customer_id
+  } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error" })
+    } else {
+      connected.query(queries.get_customerById, [customer_id], (error, results) => {
+        const NotFound = !results.length;
+        if (NotFound) {
+          if (error) throw error;
+          response.json({ resultsCode: "ບໍ່ສາມາດແກ້ໄຂ customer assignment ໄດ້" });
+        } else {
+          connected.query(queries.update_assigned, [    
+            assigned_by,
+            customer_id], (error, results) => {
+          if (error) throw error;
+          response.json({ resultsCode: "ແກ້ໄຂ customer assignment ສຳເລັດ" });
+          })
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
   create_customer,
   search_customer,
   update_customer,
   delete_customer,
+  update_assigned
 };

@@ -8,6 +8,7 @@ const customer_controller = require("../loan_module/customer/customer_controller
 router.post('/customer/add', verifyToken,customer_controller.create_customer)
 router.put('/customer/update', verifyToken,customer_controller.update_customer)
 router.delete('/customer/delete', verifyToken,customer_controller.delete_customer)
+router.put('/assigned/update', verifyToken,customer_controller.update_assigned)
 router.post('/customer/search', verifyToken,customer_controller.search_customer) // ລົງຖະບຽນລູກຄ້າ, ຂໍ້ມູນລູກຄ້າ, ຊ່ອງຄົ້ນຂໍ້ຫາລູກຄ້າ ໃຊ້ຮ່ວມກັນ
 
 //guarantor customer
@@ -43,7 +44,7 @@ router.post('/assetCredit/add', verifyToken,asset_credit_controller.create_asset
 router.post('/assetCredit/get', verifyToken,asset_credit_controller.get_asset_credit)
 router.post('/assetCredit/search', verifyToken,asset_credit_controller.search_asset_credit)
 router.put('/assetCredit/update', verifyToken,asset_credit_controller.update_asset_credit)
-// router.put('/assetCredit/update/checking', verifyToken,asset_credit_controller.update_check_asset_credit_customer)
+router.put('/assetCredit/update/checking', verifyToken,asset_credit_controller.update_check_asset_credit_customer)
 router.delete('/assetCredit/delete', verifyToken,asset_credit_controller.delete_asset_credit)
 
 
@@ -65,6 +66,9 @@ router.delete('/delete/contract', verifyToken,loan_contract_controller.delete_lo
 //loan request
 const loan_request_controller = require("../loan_module/loan_request/loan_request_controller")
 router.post('/loanRequest/add', verifyToken,loan_request_controller.create_loan_request);
+router.post('/loanRequest/get', verifyToken,loan_request_controller.get_loan_request);
+router.put('/loanRequest/update', verifyToken,loan_request_controller.update_loan_request);
+router.delete('/loanRequest/delete', verifyToken,loan_request_controller.delete_loan_request);
 
 function verifyToken(req, res, next) {
   // Get auth header value

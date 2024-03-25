@@ -1104,6 +1104,44 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "update customer assignment",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer_id\":\"93\",\r\n    \"assigned_by\":\"1\"\r\n}            \r\n            ",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/assigned/update",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assigned",
+												"update"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						},
@@ -1254,45 +1292,6 @@
 									"response": []
 								},
 								{
-									"name": "update checking asset credit customer",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
-													"type": "string"
-												}
-											]
-										},
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"asset_credit_customer_id\":\"\",\r\n    \"limit_credit_values\":\"\",\r\n    \"currency\":\"\" \r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{local_dev}}/loan/assetCredit/update/checking",
-											"host": [
-												"{{local_dev}}"
-											],
-											"path": [
-												"loan",
-												"assetCredit",
-												"update",
-												"checking"
-											]
-										}
-									},
-									"response": []
-								},
-								{
 									"name": "search",
 									"request": {
 										"auth": {
@@ -1325,6 +1324,45 @@
 												"loan",
 												"assetCredit",
 												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "checking asset cust",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"asset_credit_customer_id\":\"184\",\r\n    \"limit_credit_values\":\"990000\",\r\n    \"currency\":\"USD\" \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/assetCredit/update/checking",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"assetCredit",
+												"update",
+												"checking"
 											]
 										}
 									},
@@ -2098,6 +2136,73 @@
 												"loan",
 												"loanRequest",
 												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/loan/loanRequest/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"loanRequest",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n            \"loan_request_id\":\"83\",\r\n            \"loan_values_request\":\"25000\",\r\n            \"currency\":\"LAK\",\r\n            \"loan_request_status_name\":\"ກຳລັງກວດສອບ\",\r\n            \"reason_request\":\"ການລົງທຶນ\",\r\n            \"payment_loan_type_name\":\"ເດືອນ\",\r\n            \"payment_loan_type_value\":\"3\"\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/loanRequest/update",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"loanRequest",
+												"update"
 											]
 										}
 									},

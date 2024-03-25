@@ -147,25 +147,25 @@ const update_asset_credit = (request, response) => {
   });
 };
 
-// const update_check_asset_credit_customer = (request, response) => {
-//   const { asset_credit_customer_id,asset_credit_values, limit_credit_values, currency } =
-//     request.body;
+const update_check_asset_credit_customer = (request, response) => {
+  const {  limit_credit_values, currency,asset_credit_customer_id } =
+    request.body;
 
-//   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
-//     if (token_error) {
-//       response.json({ resultCode: "token error" });
-//     } else {
-//       connected.query(
-//         queries.update_check_asset_credit_customer,
-//         [asset_credit_values,limit_credit_values, currency, asset_credit_customer_id],
-//         (error, results) => {
-//           if (error) throw error;
-//           response.json({ resultsCode: "ອັບເດດຂໍ້ມູນການກວດສອບສຳເລັດ" });
-//         }
-//       );
-//     }
-//   });
-// };
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error" });
+    } else {
+      connected.query(
+        queries.update_check_asset_credit_customer,
+        [limit_credit_values, currency, asset_credit_customer_id],
+        (error, results) => {
+          if (error) throw error;
+          response.json({ resultsCode: "ອັບເດດຂໍ້ມູນການກວດສອບສຳເລັດ" });
+        }
+      );
+    }
+  });
+};
 
 //delete customer
 const delete_asset_credit = (request, response) => {
@@ -205,7 +205,7 @@ module.exports = {
   create_asset_credit,
   get_asset_credit,
   update_asset_credit,
-  // update_check_asset_credit_customer,
+  update_check_asset_credit_customer,
   delete_asset_credit,
   search_asset_credit,
 };

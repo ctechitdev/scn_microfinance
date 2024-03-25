@@ -24,6 +24,7 @@ const delete_customer = "DELETE FROM tbl_customer WHERE customer_id = ?";
 // check in other table
 const check_loan_request = "select * from tbl_loan_request where customer_id=?";
 const checkName = "select * from tbl_customer where first_name = ?";
+const update_assigned = `update tbl_customer set assigned_by=? where customer_id =?`;
 
 module.exports = {
   get_customerByName,
@@ -39,4 +40,5 @@ module.exports = {
   search_identified,
   get_customerName,
   get_customerByPhone,
+  update_assigned
 };
