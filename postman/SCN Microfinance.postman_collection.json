@@ -2207,6 +2207,45 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "update evaluate",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"loan_request_id\":\"81\",\r\n    \"evaluate_status\":\"ບໍ່ຜ່ານ\" //ໃຊ້ໃນໜ້າກວດສອບການປ່ອຍກູ້ ມີ: ຜ່ານ, ບໍ່ຜ່ານ\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/loanRequest/evaluate/update",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"loanRequest",
+												"evaluate",
+												"update"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						}
