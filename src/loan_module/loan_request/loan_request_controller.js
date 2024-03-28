@@ -127,6 +127,34 @@ const update_evaluate_status = (request, response) => {
   });
 };
 
+const update_approve_comment = (request, response) => {
+  const {     
+    approve_comment,
+    loan_request_id
+  } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error" })
+    } else {
+      connected.query(queries.get_loan_request_id, [loan_request_id], (error, results) => {
+        const NotFound = !results.length;
+        if (NotFound) {
+          if (error) throw error;
+          response.json({ resultsCode: "ບໍ່ສາມາດແກ້ໄຂ approve comment ໄດ້" });
+        } else {
+          connected.query(queries.update_approve_comment, [    
+            approve_comment,
+            loan_request_id], (error, results) => {
+          if (error) throw error;
+          response.json({ resultsCode: "ແກ້ໄຂ approve comment ສຳເລັດ" });
+          })
+        }
+      });
+    }
+  });
+};
+
 
 // delete loan contract
 const delete_loan_request = (request, response) => {
@@ -156,6 +184,7 @@ module.exports = {
   get_loan_request,
   update_loan_request,
   delete_loan_request,
-  update_evaluate_status
+  update_evaluate_status,
+  update_approve_comment
   
 };

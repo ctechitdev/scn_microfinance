@@ -69,7 +69,14 @@ router.post('/loanRequest/add', verifyToken,loan_request_controller.create_loan_
 router.post('/loanRequest/get', verifyToken,loan_request_controller.get_loan_request);
 router.put('/loanRequest/update', verifyToken,loan_request_controller.update_loan_request);
 router.put('/loanRequest/evaluate/update', verifyToken,loan_request_controller.update_evaluate_status);
+router.put('/loanRequest/comment/update', verifyToken,loan_request_controller.update_approve_comment);
 router.delete('/loanRequest/delete', verifyToken,loan_request_controller.delete_loan_request);
+
+//loan request status
+const loan_status_controller = require("../loan_module/loan_status/loan_status_controller")
+router.post('/loanStatus/add', verifyToken,loan_status_controller.create_loan_request_status);
+router.post('/loanStatus/get', verifyToken,loan_status_controller.get_loan_request_status);
+router.post('/loanStatus/search', verifyToken,loan_status_controller.search_loan_request_status);
 
 function verifyToken(req, res, next) {
   // Get auth header value
