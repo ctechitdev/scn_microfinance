@@ -32,11 +32,8 @@ const create_customer = (request, response) => {
     live_time_values,
     live_time_type,
     house_owner_status,
-    customer_status,
-    assigned_by,
-    add_by,
-    customer_user_id,
-    add_date,
+    customer_status
+
   } = request.body;
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
@@ -75,11 +72,7 @@ const create_customer = (request, response) => {
                 live_time_values,
                 live_time_type,
                 house_owner_status,
-                customer_status,
-                assigned_by,
-                add_by,
-                customer_user_id,
-                add_date,
+                customer_status
               ],
               (error, results) => {
                 if (error) throw error;
@@ -189,7 +182,6 @@ const update_customer = (request, response) => {
                 live_time_values,
                 live_time_type,
                 house_owner_status,
-                add_by,
                 customer_user_id,
               ],
               (error, results) => {
