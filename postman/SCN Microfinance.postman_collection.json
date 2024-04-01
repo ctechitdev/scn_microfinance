@@ -1737,7 +1737,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\r\n    \"loan_contract_number\":\"0083\",  \r\n    \"loan_request_id\":\"1\",\r\n    \"customer_id\":\"1\",\r\n    \"guarantor_id\":\"1\",\r\n    \"loan_fee_values\":\"1000000\",\r\n    \"evaluate_asset_fee_values\":\"100000\",\r\n    \"contract_status\":\"1\",\r\n    \"contract_date\":\"2024-01-01\",\r\n    \"add_by\":\"1\"\r\n\r\n}",
+											"raw": "{\r\n\r\n    \"loan_contract_number\":\"1152\",  \r\n    \"loan_request_id\":\"1\",\r\n    \"customer_id\":\"1\",\r\n    \"guarantor_id\":\"1\",\r\n    \"loan_fee_values\":\"1000000\",\r\n    \"evaluate_asset_fee_values\":\"100000\",\r\n    \"contract_status\":\"1\",\r\n    \"contract_date\":\"2024-01-01\"\r\n\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1745,12 +1745,11 @@
 											}
 										},
 										"url": {
-											"raw": "{{local_dev}}/loan/loan/contract/add",
+											"raw": "{{local_dev}}/loan/contract/add",
 											"host": [
 												"{{local_dev}}"
 											],
 											"path": [
-												"loan",
 												"loan",
 												"contract",
 												"add"
@@ -3598,7 +3597,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\r\n    \"loan_contract_number\":\"0083\",  \r\n    \"loan_request_id\":\"1\",\r\n    \"customer_id\":\"1\",\r\n    \"guarantor_id\":\"1\",\r\n    \"loan_fee_values\":\"1000000\",\r\n    \"evaluate_asset_fee_values\":\"100000\",\r\n    \"contract_status\":\"1\",\r\n    \"contract_date\":\"2024-01-01\",\r\n    \"add_by\":\"1\"\r\n\r\n}",
+											"raw": "{\r\n\r\n    \"loan_contract_number\":\"0083\",  \r\n    \"loan_request_id\":\"1\",\r\n    \"customer_id\":\"1\",\r\n    \"guarantor_id\":\"1\",\r\n    \"loan_fee_values\":\"1000000\",\r\n    \"evaluate_asset_fee_values\":\"100000\",\r\n    \"contract_status\":\"1\",\r\n    \"contract_date\":\"2024-01-01\"\r\n\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"

@@ -65,6 +65,7 @@ router.delete('/currency/delete', verifyToken,currency_controller.delete_currenc
 
 //loan contract
 const loan_contract_controller = require("../loan_module/loan_contract/loan_contract_controller")
+router.post('/contract/add', verifyToken,loan_contract_controller.create_loan_contract);
 router.post('/search/contract/customer', verifyToken,loan_contract_controller.search_customer_add_contract);
 router.post('/search/contract', verifyToken,loan_contract_controller.search_loan_contract);
 router.put('/update/contract', verifyToken,loan_contract_controller.update_loan_contract);
