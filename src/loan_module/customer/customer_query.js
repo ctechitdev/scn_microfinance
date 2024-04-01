@@ -25,6 +25,8 @@ const delete_customer = "DELETE FROM tbl_customer WHERE customer_id = ?";
 const check_loan_request = "select * from tbl_loan_request where customer_id=?";
 const checkName = "select * from tbl_customer where first_name = ?";
 const update_assigned = `update tbl_customer set assigned_by=? where customer_id =?`;
+const get_customer_id =
+  "select customer_id, profile_picture, concat(gender,' ',first_name,' ',last_name) as full_name,age, village_namge,districts_name,province_name from tbl_customer left join tbl_districts on tbl_customer.district_id = tbl_districts.districts_id left join tbl_province on tbl_customer.province_id = tbl_province.province_id where customer_id=?";
 
 module.exports = {
   get_customerByName,
@@ -40,5 +42,6 @@ module.exports = {
   search_identified,
   get_customerName,
   get_customerByPhone,
-  update_assigned
+  update_assigned,
+  get_customer_id
 };

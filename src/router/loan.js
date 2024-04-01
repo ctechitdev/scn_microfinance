@@ -7,6 +7,8 @@ const router = Router();
 const customer_controller = require("../loan_module/customer/customer_controller");
 router.post('/customer/add', verifyToken,customer_controller.create_customer);
 router.put('/customer/update', verifyToken,customer_controller.update_customer);
+router.post('/customer/get', verifyToken,customer_controller.get_customer)
+router.post('/customer/id', verifyToken,customer_controller.get_customer_id)
 router.delete('/customer/delete', verifyToken,customer_controller.delete_customer);
 router.put('/assigned/update', verifyToken,customer_controller.update_assigned);
 router.post('/customer/search', verifyToken,customer_controller.search_customer); // ລົງຖະບຽນລູກຄ້າ, ຂໍ້ມູນລູກຄ້າ, ຊ່ອງຄົ້ນຂໍ້ຫາລູກຄ້າ ໃຊ້ຮ່ວມກັນ

@@ -116,6 +116,19 @@ const search_customer = (request, response) => {
     }
   });
 };
+// Get all customer
+const get_customer = (request, response) => {
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(queries.get_customer, (error, results) => {
+        if (error) throw error;
+        response.json(results);
+      })
+    }
+  })
+}
 
 //update customer
 const update_customer = (request, response) => {
@@ -259,10 +272,32 @@ const update_assigned = (request, response) => {
   });
 };
 
+// Get customer by name
+const get_customer_id = (request, response) => {
+  const { customer_id } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(queries.get_customer_id, [customer_id], (error, results) => {
+        if (error) throw error;
+        if (results.length) {
+          response.json(results);
+        } else {
+          response.json({ resultCode: "ບໍ່ພົບ customer ນີ້ !" });
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
   create_customer,
   search_customer,
   update_customer,
   delete_customer,
-  update_assigned
+  update_assigned,
+  get_customer,
+  get_customer_id
 };
