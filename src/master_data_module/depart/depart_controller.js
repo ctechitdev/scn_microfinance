@@ -73,8 +73,8 @@ const update_depart = (request, response) => {
       response.json({ resultCode: "token error" })
     } else {
       connected.query(queries.get_departById, [depart_id], (error, results) => {
-        const noDepartFound = !results.length;
-        if (noDepartFound) {
+        const NotFound = !results.length;
+        if (NotFound) {
           if (error) throw error;
           response.json({ resultsCode: "ບໍ່ສາມາດແກ້ໄຂພະແນກໄດ້" });
         } else {

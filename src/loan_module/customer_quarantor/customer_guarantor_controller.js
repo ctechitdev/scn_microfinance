@@ -42,8 +42,8 @@ const create_customer_guarantor = (request, response) => {
         [guarantor_full_name],
         (error, results) => {
           if (error) throw error;
-          const nocustomer = results.length;
-          if (nocustomer) {
+          const Found_guarantor = results.length;
+          if (Found_guarantor) {
             if (error) throw error;
             response.json({ resultCode: "ມີ customer guarantor ນີ້ແລ້ວ !" });
           } else {

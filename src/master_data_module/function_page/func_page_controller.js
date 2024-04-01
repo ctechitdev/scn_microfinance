@@ -73,8 +73,8 @@ const update_funcPage = (request, response) => {
       response.json({ resultCode: "token error" })
     } else {
       connected.query(queries.get_funcPageById, [page_title_id], (error, results) => {
-        const nopage_titleFound = !results.length;
-        if (nopage_titleFound) {
+        const NotFound = !results.length;
+        if (NotFound) {
           if (error) throw error;
           response.json({ resultsCode: "ບໍ່ສາມາດແກ້ໄຂໜ້າຟັງຊັ່ນໄດ້" });
         } else {
@@ -97,8 +97,8 @@ const delete_funcPage = (request, response) => {
         response.json({ resultCode: "token error" });
       } else {
         connected.query(queries.get_funcPageById, [page_title_id], (error, results) => {
-          const noFuncFound = !results.length;
-          if (noFuncFound) {
+          const NotFound = !results.length;
+          if (NotFound) {
             if (error) throw error;
             response.json({ resultsCode: "ລົບໜ້າຟັງຊັ່ນບໍ່ໄດ້" });
           } else {

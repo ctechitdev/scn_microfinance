@@ -44,8 +44,8 @@ const create_customer = (request, response) => {
         [first_name, last_name],
         (error, results) => {
           if (error) throw error;
-          const nocustomer = results.length;
-          if (nocustomer) {
+          const FoundCustomer = results.length;
+          if (FoundCustomer) {
             if (error) throw error;
             response.json({ resultCode: "ມີ customer ນີ້ແລ້ວ !" });
           } else {
@@ -166,8 +166,8 @@ const update_customer = (request, response) => {
         queries.get_customerByName,
         [first_name, last_name],
         (error, results) => {
-          const customerFound = results.length;
-          if (customerFound) {
+          const FoundCustomer = results.length;
+          if (FoundCustomer) {
             if (error) throw error;
             response.json({ resultsCode: "ບໍ່ສາມາດແກ້ໄຂ customer ໄດ້" });
           } else {
