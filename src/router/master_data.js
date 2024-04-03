@@ -10,6 +10,7 @@ const router = Router();
 const depart_controller = require("../master_data_module/depart/depart_controller")
 router.post('/depart/add', verifyToken,depart_controller.create_depart)
 router.post('/depart/get', verifyToken,depart_controller.get_depart)
+router.post('/depart_notoken/get',depart_controller.get_depart_notoken)
 router.post('/depart/id',verifyToken, depart_controller.get_departById)
 router.put('/depart/update',verifyToken, depart_controller.update_depart)
 router.delete('/depart/delete',verifyToken, depart_controller.delete_depart)

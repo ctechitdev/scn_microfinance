@@ -44,6 +44,14 @@ const get_depart = (request, response) => {
     }
   })
 }
+
+const get_depart_notoken = (request, response) => { 
+  connected.query(queries.get_depart, (error, results) => {
+    if (error) throw error;
+    response.json(results);
+  })
+}
+
 //---get depart by id
 const get_departById = (request, response) => {
   const { depart_id } = request.body;
@@ -131,4 +139,5 @@ module.exports = {
   get_departById,
   update_depart,
   delete_depart,
+  get_depart_notoken,
 };
