@@ -8,6 +8,8 @@ const { response } = require("express");
 
 const secretkey = "CtecMicrofinance";
 
+//ແກ້ໂຕນີ້
+// ລົງຖະບຽນລູກຄ້າໂດຍເພີ່ມຂໍ້ມູນບັດປະຈຳໂຕນຳ ເຮັດ 2 ຂະບວນການໃນການອິນເຊິດເທື່ອດຽວ.
 // Create customer
 const create_customer = (request, response) => {
   //ຮັບພາລາມິດເຕີໃນ postman ເຂົ້າມາ
@@ -85,7 +87,6 @@ const create_customer = (request, response) => {
     }
   });
 };
-
 
 
 const search_customer = (request, response) => {

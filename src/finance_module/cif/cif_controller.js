@@ -33,10 +33,11 @@ const search_customer_add_cif = (request, response) => {
     }
   });
 };
-// Create account
-const create_account = (request, response) => {
+// Create cif
+const create_cif = (request, response) => {
     //ຮັບພາລາມິດເຕີໃນ postman ເຂົ້າມາ
     const {
+      customer_id, CIF_SCN_status
 
     } = request.body;
     jwt.verify(request.token, secretkey, (token_error, rstoken) => {
@@ -44,21 +45,21 @@ const create_account = (request, response) => {
         response.json({ resultCode: "token error" });
       } else {
         connected.query(
-          queries.check_account_number,
-          [account_number],
+          queries.get_customer_id,
+          [customer_id],
           (error, results) => {
             if (error) throw error;
             if (results.length) {
-              response.json({ resultCode: "ມີບັນຊີນີ້ແລ້ວ !" });
+              response.json({ resultCode: "ມີເລກທະບຽນນີ້ແລ້ວ !" });
             } else {
               connected.query(
-                queries.add_account,
+                queries.add_cif,
                 [
-
+                  customer_id, CIF_SCN_status
                 ],
                 (error, results) => {
                   if (error) throw error;
-                  response.json({ resultCode: "ເພີ່ມບັນຊີສຳເລັດ" });
+                  response.json({ resultCode: "ເພີ່ມເລກທະບຽນສຳເລັດ" });
                 }
               );
             }
@@ -70,4 +71,5 @@ const create_account = (request, response) => {
 
 module.exports = {
   search_customer_add_cif,
+  create_cif
 };

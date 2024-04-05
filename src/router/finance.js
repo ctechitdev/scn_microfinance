@@ -5,7 +5,8 @@ const router = Router();
 
 // CIF
 const cif_controller = require("../finance_module/cif/cif_controller")
-router.post('/search/cif/customer', verifyToken,cif_controller.search_customer_add_cif)
+router.post('/search/cif/customer', verifyToken,cif_controller.search_customer_add_cif);
+router.post('/cif/add', verifyToken,cif_controller.create_cif);
 
 
 function verifyToken(req, res, next) {
