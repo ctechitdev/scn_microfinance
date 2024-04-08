@@ -916,14 +916,14 @@
 							"name": "customer",
 							"item": [
 								{
-									"name": "create",
+									"name": "add",
 									"request": {
 										"auth": {
 											"type": "bearer",
 											"bearer": [
 												{
 													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
 													"type": "string"
 												}
 											]
@@ -932,7 +932,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\"profile_picture\":\"bo.png\",\r\n\"gender\":\"ທ້າວ\",\r\n\"first_name\":\"ແລ່ມໂບ້\",\r\n\"last_name\":\"ຜຸຍຄຳແດງ\",\r\n\"full_name\":\"ທ້າວ ແລ່ມໂບ້ ຜຸຍຄຳແດງ\",\r\n\"age\":\"19\",\r\n\"date_birth\":\"2004-04-17\",\r\n\"customer_nationality\":\"\",\r\n\"customer_job\":\"\",\r\n\"customer_job_location\":\"\",\r\n\"province_id\":\"1\",\r\n\"district_id\":\"1\",\r\n\"village_namge\":\"ໂນນຂີ້ເຫຼັກ\",\r\n\"house_unit\":\"\",\r\n\"house_number\":\"\",\r\n\"phone_number\":\"2078066015\",\r\n\"whats_app_number\":\"2078066015\",\r\n\"house_owner_category\":\"\",\r\n\"live_time_values\":\"\",\r\n\"live_time_type\":\"\",\r\n\"house_owner_status\":\"\",\r\n\"customer_status\":\"1\",\r\n\"assigned_by\":\"\",\r\n\"customer_user_id\":\"\",\r\n\"add_date\":\"\"\r\n}\r\n",
+											"raw": "\r\n    {\r\n\"profile_picture\":\"bo.png\",\r\n\"gender\":\"ທ້າວ\",\r\n\"first_name\":\"testerter\",\r\n\"last_name\":\"ຜຸຍຄຳແດງ\",\r\n\"age\":\"19\",\r\n\"date_birth\":\"2004-04-17\",\r\n\"customer_nationality\":\"\",\r\n\"customer_job\":\"\",\r\n\"customer_job_location\":\"\",\r\n\"province_id\":\"1\",\r\n\"district_id\":\"1\",\r\n\"village_namge\":\"ໂນນຂີ້ເຫຼັກ\",\r\n\"house_unit\":\"\",\r\n\"house_number\":\"\",\r\n\"phone_number\":\"2078066015\",\r\n\"whats_app_number\":\"2078066015\",\r\n\"house_owner_category\":\"ເຮືອນເຊົ່າ\",\r\n\"live_time_values\":\"10\",\r\n\"live_time_type\":\"ປີ\",\r\n\"house_owner_status\":\"\",\r\n\"customer_status\":\"1\",\r\n\"picture_identified_name\":\"0123\",\r\n\"picture_name_file\":\"test.png\",\r\n\"identified_register_date\":\"2024-01-01\",\r\n\"identified_expire_date\":\"2025-01-01\",\r\n\"picture_identified_type\":\"ບັດປະຈຳໂຕ\"\r\n\r\n                      \r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1024,6 +1024,44 @@
 												"loan",
 												"customer",
 												"search"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer_id\":\"2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"id"
 											]
 										}
 									},
@@ -1138,44 +1176,6 @@
 												"loan",
 												"assigned",
 												"update"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "id",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"customer_id\":\"2\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{local_dev}}/loan/customer/id",
-											"host": [
-												"{{local_dev}}"
-											],
-											"path": [
-												"loan",
-												"customer",
-												"id"
 											]
 										}
 									},
@@ -4220,14 +4220,14 @@
 							"name": "customer Copy",
 							"item": [
 								{
-									"name": "create",
+									"name": "add",
 									"request": {
 										"auth": {
 											"type": "bearer",
 											"bearer": [
 												{
 													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
 													"type": "string"
 												}
 											]
@@ -4236,7 +4236,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\"profile_picture\":\"bo.png\",\r\n\"gender\":\"ທ້າວ\",\r\n\"first_name\":\"ແລ່ມໂບ້\",\r\n\"last_name\":\"ຜຸຍຄຳແດງ\",\r\n\"full_name\":\"ທ້າວ ແລ່ມໂບ້ ຜຸຍຄຳແດງ\",\r\n\"age\":\"19\",\r\n\"date_birth\":\"2004-04-17\",\r\n\"customer_nationality\":\"\",\r\n\"customer_job\":\"\",\r\n\"customer_job_location\":\"\",\r\n\"province_id\":\"1\",\r\n\"district_id\":\"1\",\r\n\"village_namge\":\"ໂນນຂີ້ເຫຼັກ\",\r\n\"house_unit\":\"\",\r\n\"house_number\":\"\",\r\n\"phone_number\":\"2078066015\",\r\n\"whats_app_number\":\"2078066015\",\r\n\"house_owner_category\":\"\",\r\n\"live_time_values\":\"\",\r\n\"live_time_type\":\"\",\r\n\"house_owner_status\":\"\",\r\n\"customer_status\":\"1\",\r\n\"assigned_by\":\"\",\r\n\"customer_user_id\":\"\",\r\n\"add_date\":\"\"\r\n}\r\n",
+											"raw": "\r\n    {\r\n\"profile_picture\":\"bo.png\",\r\n\"gender\":\"ທ້າວ\",\r\n\"first_name\":\"testerter\",\r\n\"last_name\":\"ຜຸຍຄຳແດງ\",\r\n\"age\":\"19\",\r\n\"date_birth\":\"2004-04-17\",\r\n\"customer_nationality\":\"\",\r\n\"customer_job\":\"\",\r\n\"customer_job_location\":\"\",\r\n\"province_id\":\"1\",\r\n\"district_id\":\"1\",\r\n\"village_namge\":\"ໂນນຂີ້ເຫຼັກ\",\r\n\"house_unit\":\"\",\r\n\"house_number\":\"\",\r\n\"phone_number\":\"2078066015\",\r\n\"whats_app_number\":\"2078066015\",\r\n\"house_owner_category\":\"ເຮືອນເຊົ່າ\",\r\n\"live_time_values\":\"10\",\r\n\"live_time_type\":\"ປີ\",\r\n\"house_owner_status\":\"\",\r\n\"customer_status\":\"1\",\r\n\"picture_identified_name\":\"0123\",\r\n\"picture_name_file\":\"test.png\",\r\n\"identified_register_date\":\"2024-01-01\",\r\n\"identified_expire_date\":\"2025-01-01\",\r\n\"picture_identified_type\":\"ບັດປະຈຳໂຕ\"\r\n\r\n                      \r\n}\r\n",
 											"options": {
 												"raw": {
 													"language": "json"

@@ -8,11 +8,10 @@ const { response } = require("express");
 
 const secretkey = "CtecMicrofinance";
 
-//ແກ້ໂຕນີ້
-// ລົງຖະບຽນລູກຄ້າໂດຍເພີ່ມຂໍ້ມູນບັດປະຈຳໂຕນຳ ເຮັດ 2 ຂະບວນການໃນການອິນເຊິດເທື່ອດຽວ.
+
 // Create customer
-const create_customer = (request, response) => {
-  //ຮັບພາລາມິດເຕີໃນ postman ເຂົ້າມາ
+
+const add_customer = (request, response) => {
   const {
     profile_picture,
     gender,
@@ -35,58 +34,87 @@ const create_customer = (request, response) => {
     live_time_type,
     house_owner_status,
     customer_status
-
   } = request.body;
+
   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
     if (token_error) {
-      response.json({ resultCode: "token error" });
+      response.json({ resultCode: "Token error" });
     } else {
       connected.query(
         queries.get_customerByName,
         [first_name, last_name],
         (error, results) => {
-          if (error) throw error;
-          const FoundCustomer = results.length;
-          if (FoundCustomer) {
-            if (error) throw error;
-            response.json({ resultCode: "ມີ customer ນີ້ແລ້ວ !" });
+          if (results.length) {
+            response.json({ resultCode: "Customer already exists" });
           } else {
-            connected.query(
-              queries.add_customer,
-              [
-                profile_picture,
-                gender,
-                first_name,
-                last_name,
-                age,
-                date_birth,
-                customer_nationality,
-                customer_job,
-                customer_job_location,
-                province_id,
-                district_id,
-                village_namge,
-                house_unit,
-                house_number,
-                phone_number,
-                whats_app_number,
-                house_owner_category,
-                live_time_values,
-                live_time_type,
-                house_owner_status,
-                customer_status
-              ],
-              (error, results) => {
-                if (error) throw error;
-                response.json({ resultCode: "ເພີ່ມ customer ສຳເລັດ" });
-              }
-            );
+              connected.query(queries.add,
+                [
+                  profile_picture,
+                  gender,
+                  first_name,
+                  last_name,
+                  age,
+                  date_birth,
+                  customer_nationality,
+                  customer_job,
+                  customer_job_location,
+                  province_id,
+                  district_id,
+                  village_namge,
+                  house_unit,
+                  house_number,
+                  phone_number,
+                  whats_app_number,
+                  house_owner_category,
+                  live_time_values,
+                  live_time_type,
+                  house_owner_status,
+                  customer_status
+                ],
+                (error, results) => {
+                  if (error) {
+                    response.json({ resultCode:"database1 error" });
+                  } else {
+                    console.log('Inserted new customer with customer_id:', results.insertId);
+                    // Assuming queries.add_2 and request.body are defined properly
+                    const{                        
+                  
+                      picture_identified_name,
+                      picture_name_file,
+                      identified_register_date,
+                      identified_expire_date,
+                      picture_identified_type
+                    }=request.body;
+                    connected.query(
+                      queries.add_2,
+                      [
+                        results.insertId,
+                       picture_identified_name,
+                       picture_name_file,
+                       identified_register_date,
+                       identified_expire_date,
+                       picture_identified_type
+                      ],
+                      (error, results) => {
+                        if (error) {
+                          response.json({ error: "Database3 error" });
+                        } else {
+                          console.log('Inserted new address with ID:', results.insertId);
+                          response.json({ success: true, message: "Customer added successfully" });
+                        }
+                      }
+                    );
+                  }
+                }
+              );
+            
           }
         }
       );
     }
   });
 };
+
 
 
 const search_customer = (request, response) => {
@@ -294,11 +322,11 @@ const get_customer_id = (request, response) => {
 };
 
 module.exports = {
-  create_customer,
   search_customer,
   update_customer,
   delete_customer,
   update_assigned,
   get_customer,
-  get_customer_id
+  get_customer_id,
+  add_customer
 };

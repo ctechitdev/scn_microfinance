@@ -5,7 +5,7 @@ const router = Router();
 
 // customer finish...
 const customer_controller = require("../loan_module/customer/customer_controller");
-router.post('/customer/add', verifyToken,customer_controller.create_customer);
+router.post('/customer/add', verifyToken,customer_controller.add_customer);
 router.put('/customer/update', verifyToken,customer_controller.update_customer);
 router.post('/customer/get', verifyToken,customer_controller.get_customer)
 router.post('/customer/id', verifyToken,customer_controller.get_customer_id)
