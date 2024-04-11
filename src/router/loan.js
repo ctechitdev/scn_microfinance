@@ -20,7 +20,7 @@ router.post('/identified/get', verifyToken,identified_controller.get_identified)
 router.put('/identified/update', verifyToken,identified_controller.update_identified);
 //guarantor customer
 const customer_guarantor_controller = require("../loan_module/customer_quarantor/customer_guarantor_controller");
-router.post('/customer/guarantor/add', verifyToken,customer_guarantor_controller.create_customer_guarantor);
+router.post('/customer/guarantor/add', verifyToken,customer_guarantor_controller.add_customer_guaantor);
 router.post('/customer/guarantor/search', verifyToken,customer_guarantor_controller.search_customer_guarantor);
 router.put('/customer/guarantor/update', verifyToken,customer_guarantor_controller.update_customer_guarantor);
 router.delete('/customer/guarantor/delete', verifyToken,customer_guarantor_controller.delete_customer_guarantor);

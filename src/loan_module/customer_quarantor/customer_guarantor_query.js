@@ -1,7 +1,28 @@
 const get_guarantor_customer = "select * from tbl_customer_guarantor where guarantor_full_name = ?";
 const add_guarantor_customer =
-"insert into tbl_customer_guarantor(guarantor_profile_picture,guarantor_full_name,gender,age,date_birth,guarantor_nationality,guarantor_job,guarantor_job_location,province_id,district_id,village_namge,house_unit,house_number,phone_number,whats_app_number,house_owner_category,live_time_values,live_time_type,house_owner_status,customer_id,add_by,add_date)" +
-"values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,current_date)";
+`insert into tbl_customer_guarantor
+(    
+  guarantor_profile_picture,
+  guarantor_full_name,
+  gender,
+  age,
+  date_birth,
+  guarantor_nationality,
+  guarantor_job,
+  guarantor_job_location,
+  province_id,
+  district_id,
+  village_namge,
+  house_unit,
+  house_number,
+  phone_number,
+  whats_app_number,
+  house_owner_category,
+  live_time_values,
+  live_time_type,
+  house_owner_status,
+  customer_id,add_date)
+values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,current_date)`;
 
 const search_customer_guarantor =
  "select customer_guarantor_id,full_name, tbl_customer.phone_number, guarantor_full_name,tbl_customer_guarantor.phone_number,tbl_customer_guarantor.village_namge, districts_name, province_name " + 
