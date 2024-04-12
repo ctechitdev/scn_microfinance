@@ -26,14 +26,6 @@ router.put('/customer/guarantor/update', verifyToken,customer_guarantor_controll
 router.delete('/customer/guarantor/delete', verifyToken,customer_guarantor_controller.delete_customer_guarantor);
 
 
-//account
-const account_controller = require("../loan_module/account/account_controller")
-router.post('/account/add', verifyToken,account_controller.create_account)
-router.post('/account/get', verifyToken,account_controller.get_account)
-router.post('/account/id', verifyToken,account_controller.get_account_Id) 
-router.post('/account/number', verifyToken,account_controller.get_account_number) 
-router.post('/account/firstname', verifyToken,account_controller.get_account_customer_firstname) 
-
 
 //asset type customer
 const asset_type_controller = require("../loan_module/asset_type_customer/asset_type_cust_controller")

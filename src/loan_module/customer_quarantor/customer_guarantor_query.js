@@ -23,6 +23,8 @@ const add_guarantor_customer =
   house_owner_status,
   customer_id,add_date)
 values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,current_date)`;
+const add_2= `INSERT INTO tbl_guarantor_picture_identified
+(guarantor_id,picture_identified_picture_name,picture_name_file,identified_register_date,identified_expire_date,picture_identified_type,date_add)values (?,?,?,?,?,?,current_date)`;
 
 const search_customer_guarantor =
  "select customer_guarantor_id,full_name, tbl_customer.phone_number, guarantor_full_name,tbl_customer_guarantor.phone_number,tbl_customer_guarantor.village_namge, districts_name, province_name " + 
@@ -48,5 +50,6 @@ module.exports={
     update_customer_guarantor,
     get_id,
     get_name,
-    delete_customer_guarantor
+    delete_customer_guarantor,
+    add_2
 };

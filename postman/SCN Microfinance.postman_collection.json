@@ -1409,154 +1409,6 @@
 							]
 						},
 						{
-							"name": "account",
-							"item": [
-								{
-									"name": "create",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"account_number\":\"11111111\",\r\n    \"CIF_id\":\"1\",\r\n     \"customer_id\":\"2\",\r\n     \"account_balance\":\"100000\",\r\n    \"account_by_branch\":\"1\" ,\r\n     \"account_type_id\":\"1\",\r\n    \"account_status\":\"1\" ,\r\n     \"currency_code\":\"USD\",\r\n     \"create_by\":\"1\",\r\n     \"date_update\":\"2024-03-23\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{local_dev}}/loan/account/add",
-											"host": [
-												"{{local_dev}}"
-											],
-											"path": [
-												"loan",
-												"account",
-												"add"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "get",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [],
-										"url": {
-											"raw": "{{local_dev}}/loan/account/get",
-											"host": [
-												"{{local_dev}}"
-											],
-											"path": [
-												"loan",
-												"account",
-												"get"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "get_by_account_id",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"account_id\":\"55\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{local_dev}}/loan/account/id",
-											"host": [
-												"{{local_dev}}"
-											],
-											"path": [
-												"loan",
-												"account",
-												"id"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "get_by_account_number",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"account_number\":\"0001\"\r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{local_dev}}/loan/account/number",
-											"host": [
-												"{{local_dev}}"
-											],
-											"path": [
-												"loan",
-												"account",
-												"number"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
 							"name": "customer_guarantor",
 							"item": [
 								{
@@ -1576,7 +1428,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"guarantor_profile_picture\":\"hah.png\",\r\n    \"guarantor_full_name\":\"lulu\",\r\n    \"gender\":\"ນາງ\",\r\n    \"age\":\"19\",\r\n    \"date_birth\":\"2004-05-16\",\r\n    \"guarantor_job\":\"ນັກມວຍ\",\r\n    \"guarantor_job_location\":\"\",\r\n    \"province_id\":\"1\",\r\n    \"district_name\":\"1\",\r\n    \"village_namge\":\"ທົ່ງປົ່ງ\",\r\n    \"house_unit\":\"40\",\r\n    \"house_number\":\"666\",\r\n    \"phone_number\":\"2078066015\",\r\n    \"whats_app_number\":\"2078066015\",\r\n    \"house_owner_category\":\"ບ້ານເຊົ່າ\",\r\n    \"live_time_values\":\"\",\r\n    \"live_time_type\":\"\",\r\n    \"house_owner_status\":\"\",\r\n    \"customer_id\":\"5\",\r\n    \"add_by\":\"1\"\r\n}",
+											"raw": "{\r\n    \"guarantor_profile_picture\":\"hah.png\",\r\n    \"guarantor_full_name\":\"hellos worlds\",\r\n    \"gender\":\"ນາງ\",\r\n    \"age\":\"19\",\r\n    \"date_birth\":\"2004-05-16\",\r\n    \"guarantor_job\":\"ນັກມວຍ\",\r\n    \"guarantor_job_location\":\"ຕະຫຼາດລາວ\",\r\n    \"province_id\":\"1\",\r\n    \"district_id\":\"1\",\r\n    \"village_namge\":\"ທົ່ງປົ່ງ\",\r\n    \"house_unit\":\"40\",\r\n    \"house_number\":\"666\",\r\n    \"phone_number\":\"2078066015\",\r\n    \"whats_app_number\":\"2078066015\",\r\n    \"house_owner_category\":\"ບ້ານເຊົ່າ\",\r\n    \"live_time_values\":\"20\",\r\n    \"live_time_type\":\"ປີ\",\r\n    \"house_owner_status\":\"1\",\r\n    \"customer_id\":\"1\",\r\n    \"picture_identified_picture_name\":\"0123\",\r\n\"picture_name_file\":\"test.png\",\r\n\"identified_register_date\":\"2024-01-01\",\r\n\"identified_expire_date\":\"2025-01-01\",\r\n\"picture_identified_type\":\"ບັດປະຈຳໂຕ\"\r\n\r\n                      \r\n\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2551,42 +2403,320 @@
 					"name": "finance_module",
 					"item": [
 						{
-							"name": "add",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
-											"type": "string"
+							"name": "cif",
+							"item": [
+								{
+									"name": "add",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer_id\":\"1\",\r\n    \"CIF_SCN_status\":\"1\"\r\n}  ",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/finance/cif/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"cif",
+												"add"
+											]
 										}
-									]
+									},
+									"response": []
 								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"customer_id\":\"1\",\r\n    \"CIF_SCN_status\":\"1\"\r\n}  ",
-									"options": {
-										"raw": {
-											"language": "json"
+								{
+									"name": "search_customer_add_cif",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"search_box\":\"20\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/finance/search/cif/customer",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"search",
+												"cif",
+												"customer"
+											]
 										}
-									}
+									},
+									"response": []
 								},
-								"url": {
-									"raw": "{{local_dev}}/finance/cif/add",
-									"host": [
-										"{{local_dev}}"
-									],
-									"path": [
-										"finance",
-										"cif",
-										"add"
-									]
+								{
+									"name": "get",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/finance/cif/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"cif",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_id",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/finance/cif/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"cif",
+												"id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"CIF_SCN_id\":\"7005\",\r\n    \"customer_id\":\"5\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/finance/cif/update",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"cif",
+												"update"
+											]
+										}
+									},
+									"response": []
 								}
-							},
-							"response": []
+							]
+						},
+						{
+							"name": "account",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"account_number\":\"11111111\",\r\n    \"CIF_id\":\"1\",\r\n     \"customer_id\":\"2\",\r\n     \"account_balance\":\"100000\",\r\n    \"account_by_branch\":\"1\" ,\r\n     \"account_type_id\":\"1\",\r\n    \"account_status\":\"1\" ,\r\n     \"currency_code\":\"USD\",\r\n     \"create_by\":\"1\",\r\n     \"date_update\":\"2024-03-23\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/finance/account/add",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"account",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/finance/account/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"account",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_by_account_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"account_id\":\"55\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/finance/account/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"account",
+												"id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_by_account_number",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"account_number\":\"0001\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/finance/account/number",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"account",
+												"number"
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				}
@@ -3246,7 +3376,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"guarantor_profile_picture\":\"hah.png\",\r\n    \"guarantor_full_name\":\"lulu\",\r\n    \"gender\":\"ນາງ\",\r\n    \"age\":\"19\",\r\n    \"date_birth\":\"2004-05-16\",\r\n    \"guarantor_job\":\"ນັກມວຍ\",\r\n    \"guarantor_job_location\":\"\",\r\n    \"province_id\":\"1\",\r\n    \"district_name\":\"1\",\r\n    \"village_namge\":\"ທົ່ງປົ່ງ\",\r\n    \"house_unit\":\"40\",\r\n    \"house_number\":\"666\",\r\n    \"phone_number\":\"2078066015\",\r\n    \"whats_app_number\":\"2078066015\",\r\n    \"house_owner_category\":\"ບ້ານເຊົ່າ\",\r\n    \"live_time_values\":\"\",\r\n    \"live_time_type\":\"\",\r\n    \"house_owner_status\":\"\",\r\n    \"customer_id\":\"5\",\r\n    \"add_by\":\"1\"\r\n}",
+											"raw": "{\r\n    \"guarantor_profile_picture\":\"hah.png\",\r\n    \"guarantor_full_name\":\"hellos worlds\",\r\n    \"gender\":\"ນາງ\",\r\n    \"age\":\"19\",\r\n    \"date_birth\":\"2004-05-16\",\r\n    \"guarantor_job\":\"ນັກມວຍ\",\r\n    \"guarantor_job_location\":\"ຕະຫຼາດລາວ\",\r\n    \"province_id\":\"1\",\r\n    \"district_id\":\"1\",\r\n    \"village_namge\":\"ທົ່ງປົ່ງ\",\r\n    \"house_unit\":\"40\",\r\n    \"house_number\":\"666\",\r\n    \"phone_number\":\"2078066015\",\r\n    \"whats_app_number\":\"2078066015\",\r\n    \"house_owner_category\":\"ບ້ານເຊົ່າ\",\r\n    \"live_time_values\":\"20\",\r\n    \"live_time_type\":\"ປີ\",\r\n    \"house_owner_status\":\"1\",\r\n    \"customer_id\":\"1\",\r\n    \"picture_identified_picture_name\":\"0123\",\r\n\"picture_name_file\":\"test.png\",\r\n\"identified_register_date\":\"2024-01-01\",\r\n\"identified_expire_date\":\"2025-01-01\",\r\n\"picture_identified_type\":\"ບັດປະຈຳໂຕ\"\r\n\r\n                      \r\n\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -4480,6 +4610,327 @@
 												"loan",
 												"customer",
 												"id"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "finance_module Copy",
+					"item": [
+						{
+							"name": "cif",
+							"item": [
+								{
+									"name": "add",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer_id\":\"1\",\r\n    \"CIF_SCN_status\":\"1\"\r\n}  ",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat_dev}}/finance/cif/add",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"finance",
+												"cif",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "search_customer_add_cif",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"search_box\":\"20\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat_dev}}/finance/search/cif/customer",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"finance",
+												"search",
+												"cif",
+												"customer"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{uat_dev}}/finance/cif/get",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"finance",
+												"cif",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_id",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{uat_dev}}/finance/cif/id",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"finance",
+												"cif",
+												"id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"CIF_SCN_id\":\"7005\",\r\n    \"customer_id\":\"5\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat_dev}}/finance/cif/update",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"finance",
+												"cif",
+												"update"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "account",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"account_number\":\"11111111\",\r\n    \"CIF_id\":\"1\",\r\n     \"customer_id\":\"2\",\r\n     \"account_balance\":\"100000\",\r\n    \"account_by_branch\":\"1\" ,\r\n     \"account_type_id\":\"1\",\r\n    \"account_status\":\"1\" ,\r\n     \"currency_code\":\"USD\",\r\n     \"create_by\":\"1\",\r\n     \"date_update\":\"2024-03-23\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat_dev}}/finance/account/add",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"finance",
+												"account",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{uat_dev}}/finance/account/get",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"finance",
+												"account",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_by_account_id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"account_id\":\"55\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat_dev}}/finance/account/id",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"finance",
+												"account",
+												"id"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get_by_account_number",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcwOTAwMzUyMn0.RlubOpKfr7MT6zCxPSioStyeMVuWjMPaLPM9_PWRd2E",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"account_number\":\"0001\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{uat_dev}}/finance/account/number",
+											"host": [
+												"{{uat_dev}}"
+											],
+											"path": [
+												"finance",
+												"account",
+												"number"
 											]
 										}
 									},

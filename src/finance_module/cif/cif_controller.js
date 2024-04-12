@@ -69,7 +69,81 @@ const create_cif = (request, response) => {
     });
   };
 
+// get CIF
+const get_cif = (request, response) => {
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(queries.get_cif, (error, results) => {
+        if (error) throw error;
+        response.json(results);
+      })
+    }
+  })
+}
+
+//---get depart by id
+const get_cif_ById = (request, response) => {
+  const { CIF_SCN_id } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(queries.get_cif_id, [CIF_SCN_id], (error, results) => {
+        if (error) throw error;
+        if (results.length) {
+          response.json(results);
+        } else {
+          response.json({ resultCode: "ບໍ່ພົບ cif ນີ້ !" });
+        }
+      });
+    }
+  });
+};
+
+//  const update_cif = (request, response) => {
+//   const { customer_id,CIF_SCN_id} = request.body;
+//   jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+//     if (token_error) {
+//       response.json({ resultCode: "token error" })
+//     } else {
+
+//       connected.query(queries.get_customerById, [customer_id], (error, results) => {
+//         if (error) throw error;
+//         if (!results.length) {
+//           // ຖ້າມີບໍ່ໃຫ້ມັນແກ້ໄຂ
+//           response.json({ resultCode: "ມີ CIF ນີ້ຢູ່ແລ້ວ" })
+
+
+//         } else {
+
+//           //ຖ້າບໍ່ມີລະໃຫ້ແກ້ໄຂ
+//           //response.json({ resultCode: "allow to update" })
+//           //ຄຳສັງແກ້ໄຂ
+//           connected.query(queries.check_cif_id_in_account, [CIF_SCN_id], (error, results) => {
+//             if (results.length) {
+
+//               response.json({ resultCode: "ບໍ່ອະນຸຍາດໃຫ້ແກ້ໄຂ CIF ນີ້" })
+//             } else {
+//               connected.query(queries.update_cif, [customer_id,CIF_SCN_id], (error, results) => {
+//                 if (error) throw error;
+//                 response.json({ resultsCode: "ແກ້ໄຂ CIF ສຳເລັດ" });
+//                 })
+//             }
+//           })
+
+//         }
+//       })
+//     }
+//   });
+// }
+
 module.exports = {
   search_customer_add_cif,
-  create_cif
+  create_cif,
+  get_cif,
+  get_cif_ById,
+  // update_cif
 };
