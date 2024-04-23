@@ -8,83 +8,7 @@ const { response } = require("express");
 
 const secretkey = "CtecMicrofinance";
 
-const create_customer_guarantor = (request, response) => {
-  //ຮັບພາລາມິດເຕີໃນ postman ເຂົ້າມາ
-  const {
-    guarantor_profile_picture,
-    guarantor_full_name,
-    gender,
-    age,
-    date_birth,
-    guarantor_nationality,
-    guarantor_job,
-    guarantor_job_location,
-    province_id,
-    district_id,
-    village_namge,
-    house_unit,
-    house_number,
-    phone_number,
-    whats_app_number,
-    house_owner_category,
-    live_time_values,
-    live_time_type,
-    house_owner_status,
-    customer_id,
-    add_by,
-  } = request.body;
-  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
-    if (token_error) {
-      response.json({ resultCode: "token error" });
-    } else {
-      connected.query(
-        queries.get_guarantor_customer,
-        [guarantor_full_name],
-        (error, results) => {
-          if (error) throw error;
-          const Found_guarantor = results.length;
-          if (Found_guarantor) {
-            if (error) throw error;
-            response.json({ resultCode: "ມີ customer guarantor ນີ້ແລ້ວ !" });
-          } else {
-            connected.query(
-              queries.add_guarantor_customer,
-              [
-                guarantor_profile_picture,
-                guarantor_full_name,
-                gender,
-                age,
-                date_birth,
-                guarantor_nationality,
-                guarantor_job,
-                guarantor_job_location,
-                province_id,
-                district_id,
-                village_namge,
-                house_unit,
-                house_number,
-                phone_number,
-                whats_app_number,
-                house_owner_category,
-                live_time_values,
-                live_time_type,
-                house_owner_status,
-                customer_id,
-                add_by,
-              ],
-              (error, results) => {
-                if (error) throw error;
-                response.json({
-                  resultCode: "ເພີ່ມ customer guarantor ສຳເລັດ",
-                });
-              }
-            );
-          }
-        }
-      );
-    }
-  });
-};
+
 
 const add_customer_guaantor = (request, response) => {
   const {
@@ -221,6 +145,24 @@ const search_customer_guarantor = (request, response) => {
     }
   });
 };
+const get_customer_guarantor_id = (request, response) => {
+  const { customer_guarantor_id } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(queries.get_customer_guarantor_id, [customer_guarantor_id], (error, results) => {
+        if (error) throw error;
+        if (results.length) {
+          response.json(results[0]);
+        } else {
+          response.json({ resultCode: "ບໍ່ພົບ customer ນີ້ !" });
+        }
+      });
+    }
+  });
+};
 
 const update_customer_guarantor = (request, response) => {
   const {
@@ -338,9 +280,10 @@ const delete_customer_guarantor = (request, response) => {
   });
 };
 
+
 module.exports = {
-  create_customer_guarantor,
   search_customer_guarantor,
+  get_customer_guarantor_id,
   update_customer_guarantor,
   delete_customer_guarantor,
   add_customer_guaantor,

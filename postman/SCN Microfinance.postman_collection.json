@@ -230,7 +230,7 @@
 									"response": []
 								},
 								{
-									"name": "get_depart_by_depart_id",
+									"name": "id",
 									"request": {
 										"auth": {
 											"type": "bearer",
@@ -1046,7 +1046,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"customer_id\":\"2\"\r\n}",
+											"raw": "{\r\n    \"customer_id\":\"77\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1428,7 +1428,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"guarantor_profile_picture\":\"hah.png\",\r\n    \"guarantor_full_name\":\"hellos worlds\",\r\n    \"gender\":\"ນາງ\",\r\n    \"age\":\"19\",\r\n    \"date_birth\":\"2004-05-16\",\r\n    \"guarantor_job\":\"ນັກມວຍ\",\r\n    \"guarantor_job_location\":\"ຕະຫຼາດລາວ\",\r\n    \"province_id\":\"1\",\r\n    \"district_id\":\"1\",\r\n    \"village_namge\":\"ທົ່ງປົ່ງ\",\r\n    \"house_unit\":\"40\",\r\n    \"house_number\":\"666\",\r\n    \"phone_number\":\"2078066015\",\r\n    \"whats_app_number\":\"2078066015\",\r\n    \"house_owner_category\":\"ບ້ານເຊົ່າ\",\r\n    \"live_time_values\":\"20\",\r\n    \"live_time_type\":\"ປີ\",\r\n    \"house_owner_status\":\"1\",\r\n    \"customer_id\":\"1\",\r\n    \"picture_identified_picture_name\":\"0123\",\r\n\"picture_name_file\":\"test.png\",\r\n\"identified_register_date\":\"2024-01-01\",\r\n\"identified_expire_date\":\"2025-01-01\",\r\n\"picture_identified_type\":\"ບັດປະຈຳໂຕ\"\r\n\r\n                      \r\n\r\n}",
+											"raw": "{\r\n    \"guarantor_profile_picture\":\"hah.png\",\r\n    \"guarantor_full_name\":\"ຫອຍ\",\r\n    \"gender\":\"ທ້າວ\",\r\n    \"age\":\"19\",\r\n    \"date_birth\":\"2004-05-16\",\r\n    \"guarantor_nationality\":\"ລາວແລນ\",\r\n    \"guarantor_job\":\"ນັກມວຍ\",\r\n    \"guarantor_job_location\":\"ຕະຫຼາດລາວ\",\r\n    \"province_id\":\"1\",\r\n    \"district_id\":\"1\",\r\n    \"village_namge\":\"ທົ່ງປົ່ງ\",\r\n    \"house_unit\":\"40\",\r\n    \"house_number\":\"666\",\r\n    \"phone_number\":\"2078066015\",\r\n    \"whats_app_number\":\"2078066015\",\r\n    \"house_owner_category\":\"ບ້ານເຊົ່າ\",\r\n    \"live_time_values\":\"20\",\r\n    \"live_time_type\":\"ປີ\",\r\n    \"house_owner_status\":\"1\",\r\n    \"customer_id\":\"1\",\r\n    \"picture_identified_picture_name\":\"0123\",\r\n\"picture_name_file\":\"test.png\",\r\n\"identified_register_date\":\"2024-01-01\",\r\n\"identified_expire_date\":\"2025-01-01\",\r\n\"picture_identified_type\":\"ບັດປະຈຳໂຕ\"\r\n\r\n                      \r\n\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1562,6 +1562,45 @@
 												"customer",
 												"guarantor",
 												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer_guarantor_id\":\"11\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/guarantor/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"guarantor",
+												"id"
 											]
 										}
 									},
@@ -3510,6 +3549,45 @@
 												"customer",
 												"guarantor",
 												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "id Copy",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer_guarantor_id\":\"11\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/guarantor/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"guarantor",
+												"id"
 											]
 										}
 									},

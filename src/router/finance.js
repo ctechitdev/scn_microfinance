@@ -9,7 +9,7 @@ router.post('/search/cif/customer', verifyToken,cif_controller.search_customer_a
 router.post('/cif/add', verifyToken,cif_controller.create_cif);
 router.post('/cif/get', verifyToken,cif_controller.get_cif);
 router.post('/cif/id', verifyToken,cif_controller.get_cif_ById);
-router.put('/cif/update', verifyToken,cif_controller.update_cif);
+// router.put('/cif/update', verifyToken,cif_controller.update_cif);
 
 //account
 const account_controller = require("../finance_module/account/account_controller")

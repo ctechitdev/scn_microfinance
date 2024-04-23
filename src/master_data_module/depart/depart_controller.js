@@ -63,7 +63,7 @@ const get_departById = (request, response) => {
       connected.query(queries.get_departById, [depart_id], (error, results) => {
         if (error) throw error;
         if (results.length) {
-          response.json(results);
+          response.json(results[0]);
         } else {
           response.json({ resultCode: "ບໍ່ພົບພະແນກນີ້ !" });
         }

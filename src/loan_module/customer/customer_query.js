@@ -26,10 +26,37 @@ const check_loan_request = "select * from tbl_loan_request where customer_id=?";
 const checkName = "select * from tbl_customer where first_name = ?";
 const update_assigned = `update tbl_customer set assigned_by=? where customer_id =?`;
 const get_customer_id =
-  `select customer_id, profile_picture, concat(gender,' ',first_name,' ',last_name) as full_name,age,phone_number,whats_app_number,customer_job, customer_job_location ,house_unit,house_number, village_namge,districts_name,province_name from tbl_customer 
-    left join tbl_districts on tbl_customer.district_id = tbl_districts.districts_id 
-    left join tbl_province on tbl_customer.province_id = tbl_province.province_id 
-    where customer_id=?`;
+  `SELECT 
+  tbl_customer.customer_id, 
+  tbl_customer.profile_picture, 
+  CONCAT(tbl_customer.gender, ' ', tbl_customer.first_name, ' ', tbl_customer.last_name) AS full_name, 
+  tbl_customer.age, 
+  tbl_customer.phone_number, 
+  tbl_customer.whats_app_number, 
+  tbl_customer.customer_job, 
+  tbl_customer.customer_job_location, 
+  tbl_customer.house_unit, 
+  tbl_customer.house_number, 
+  tbl_customer.village_namge, 
+  tbl_districts.districts_name, 
+  tbl_province.province_name,
+  tbl_picture_identified.picture_identified_name,
+  tbl_picture_identified.picture_name_file,
+  tbl_picture_identified.identified_register_date,
+  tbl_picture_identified.identified_expire_date,
+  tbl_picture_identified_type.picture_identified_type_name
+FROM 
+  tbl_customer 
+LEFT JOIN 
+  tbl_picture_identified ON tbl_customer.customer_id = tbl_picture_identified.customer_id 
+  LEFT JOIN 
+  tbl_picture_identified_type ON tbl_picture_identified.picture_identified_type = tbl_picture_identified_type.picture_identified_type_id 
+LEFT JOIN 
+  tbl_districts ON tbl_customer.district_id = tbl_districts.districts_id 
+LEFT JOIN 
+  tbl_province ON tbl_customer.province_id = tbl_province.province_id 
+WHERE 
+  tbl_customer.customer_id = ?`;
     const add = `insert into tbl_customer (                  
       profile_picture,
       gender,

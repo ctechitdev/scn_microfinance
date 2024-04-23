@@ -312,7 +312,7 @@ const get_customer_id = (request, response) => {
       connected.query(queries.get_customer_id, [customer_id], (error, results) => {
         if (error) throw error;
         if (results.length) {
-          response.json(results);
+          response.json(results[0]);
         } else {
           response.json({ resultCode: "ບໍ່ພົບ customer ນີ້ !" });
         }

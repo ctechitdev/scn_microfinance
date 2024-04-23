@@ -40,7 +40,54 @@ const search_customer_guarantor =
 
   const get_id ="select * from tbl_customer_guarantor where customer_guarantor_id=?"
   const get_name ="select * from tbl_customer_guarantor where guarantor_full_name=?"
-  const delete_customer_guarantor="DELETE FROM tbl_customer_guarantor WHERE customer_guarantor_id = ?"
+  const delete_customer_guarantor="DELETE FROM tbl_customer_guarantor WHERE customer_guarantor_id = ?";
+  const get_customer_guarantor_id = 
+  `SELECT 
+  tbl_customer_guarantor.customer_guarantor_id,
+  tbl_customer_guarantor.guarantor_profile_picture,
+  tbl_customer_guarantor.guarantor_full_name,
+  tbl_customer_guarantor.gender,
+  tbl_customer_guarantor.age,
+  tbl_customer_guarantor.date_birth,
+  tbl_customer_guarantor.guarantor_nationality,
+  tbl_customer_guarantor.guarantor_job,
+  tbl_customer_guarantor.guarantor_job_location,
+  tbl_customer_guarantor.province_id,
+  tbl_customer_guarantor.district_id,
+  tbl_customer_guarantor.village_namge,
+  tbl_customer_guarantor.house_unit,
+  tbl_customer_guarantor.house_number,
+  tbl_customer_guarantor.phone_number,
+  tbl_customer_guarantor.whats_app_number,
+  tbl_customer_guarantor.house_owner_category,
+  tbl_customer_guarantor.live_time_values,
+  tbl_customer_guarantor.live_time_type,
+  tbl_customer_guarantor.house_owner_status,
+  tbl_customer.full_name,
+  tbl_customer.age AS customer_age, 
+  tbl_customer.phone_number AS customer_phone_number, 
+  tbl_customer.village_namge AS customer_village_name, 
+  tbl_districts.districts_name, 
+  tbl_province.province_name,
+  tbl_guarantor_picture_identified.picture_identified_picture_name,
+  tbl_guarantor_picture_identified.picture_name_file,
+  tbl_guarantor_picture_identified.identified_register_date,
+  tbl_guarantor_picture_identified.identified_expire_date,
+  tbl_picture_identified_type.picture_identified_type_name
+FROM 
+  tbl_customer_guarantor
+LEFT JOIN 
+  tbl_guarantor_picture_identified ON tbl_customer_guarantor.customer_guarantor_id = tbl_guarantor_picture_identified.guarantor_id 
+LEFT JOIN 
+  tbl_picture_identified_type ON tbl_guarantor_picture_identified.picture_identified_type = tbl_picture_identified_type.picture_identified_type_id 
+LEFT JOIN 
+  tbl_districts ON tbl_customer_guarantor.district_id = tbl_districts.districts_id 
+LEFT JOIN 
+  tbl_customer ON tbl_customer_guarantor.customer_id = tbl_customer.customer_id 
+LEFT JOIN 
+  tbl_province ON tbl_customer_guarantor.province_id = tbl_province.province_id 
+WHERE 
+  tbl_customer_guarantor.customer_guarantor_id = ?`;
 
 
 module.exports={
@@ -51,5 +98,6 @@ module.exports={
     get_id,
     get_name,
     delete_customer_guarantor,
-    add_2
+    add_2,
+    get_customer_guarantor_id
 };
