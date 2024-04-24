@@ -68,6 +68,7 @@ router.delete('/delete/contract', verifyToken,loan_contract_controller.delete_lo
 const loan_request_controller = require("../loan_module/loan_request/loan_request_controller")
 router.post('/loanRequest/add', verifyToken,loan_request_controller.create_loan_request);
 router.post('/loanRequest/get', verifyToken,loan_request_controller.get_loan_request);
+router.post('/loanRequest/id', verifyToken,loan_request_controller.get_request_id);
 router.put('/loanRequest/update', verifyToken,loan_request_controller.update_loan_request);
 router.put('/loanRequest/evaluate/update', verifyToken,loan_request_controller.update_evaluate_status);
 router.put('/loanRequest/comment/update', verifyToken,loan_request_controller.update_approve_comment);

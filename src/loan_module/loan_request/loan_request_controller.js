@@ -61,6 +61,24 @@ const get_loan_request = (request, response) => {
     }
   })
 }
+const get_request_id = (request, response) => {
+  const { loan_request_id } = request.body;
+
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(queries.show_by_id, [loan_request_id], (error, results) => {
+        if (error) throw error;
+        if (results.length) {
+          response.json(results[0]);
+        } else {
+          response.json({ resultCode: "ບໍ່ພົບ customer ນີ້ !" });
+        }
+      });
+    }
+  });
+};
 
 const update_loan_request = (request, response) => {
   const {     
@@ -185,6 +203,7 @@ module.exports = {
   update_loan_request,
   delete_loan_request,
   update_evaluate_status,
-  update_approve_comment
+  update_approve_comment,
+  get_request_id
   
 };

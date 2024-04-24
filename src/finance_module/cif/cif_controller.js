@@ -67,7 +67,7 @@ const create_cif = (request, response) => {
         );
       }
     });
-  };
+};
 
 // get CIF
 const get_cif = (request, response) => {
@@ -94,7 +94,7 @@ const get_cif_ById = (request, response) => {
       connected.query(queries.get_cif_id, [CIF_SCN_id], (error, results) => {
         if (error) throw error;
         if (results.length) {
-          response.json(results);
+          response.json(results[0]);
         } else {
           response.json({ resultCode: "ບໍ່ພົບ cif ນີ້ !" });
         }

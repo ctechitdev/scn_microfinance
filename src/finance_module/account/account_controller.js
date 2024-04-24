@@ -75,7 +75,7 @@ const get_account = (request, response) => {
 };
 
   //---get account by id
-  const get_account_Id = (request, response) => {
+const get_account_Id = (request, response) => {
     const { account_id } = request.body;
   
     jwt.verify(request.token, secretkey, (token_error, rstoken) => {
@@ -85,7 +85,7 @@ const get_account = (request, response) => {
         connected.query(queries.get_account_id, [account_id], (error, results) => {
           if (error) throw error;
           if (results.length) {
-            response.json(results);
+            response.json(results[0]);
           } else {
             response.json({ resultCode: "ບໍ່ພົບບັນຊີນີ້ !" });
           }
@@ -95,7 +95,7 @@ const get_account = (request, response) => {
   };
 
     //---get currency by id
-    const get_account_number = (request, response) => {
+const get_account_number = (request, response) => {
       const { account_number } = request.body;
     
       jwt.verify(request.token, secretkey, (token_error, rstoken) => {
@@ -112,10 +112,10 @@ const get_account = (request, response) => {
           });
         }
       });
-    };
+};
 
         //---get currency by id
-        const get_account_customer_firstname = (request, response) => {
+ const get_account_customer_firstname = (request, response) => {
           const { first_name } = request.body;
         
           jwt.verify(request.token, secretkey, (token_error, rstoken) => {
@@ -132,7 +132,7 @@ const get_account = (request, response) => {
               });
             }
           });
-        };
+};
 
 module.exports = {
   create_account,

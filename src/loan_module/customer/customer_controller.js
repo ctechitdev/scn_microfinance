@@ -115,8 +115,6 @@ const add_customer = (request, response) => {
   });
 };
 
-
-
 const search_customer = (request, response) => {
   const {  search_box  } = request.body;
 
