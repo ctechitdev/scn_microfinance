@@ -13,15 +13,11 @@ router.delete('/customer/delete', verifyToken,customer_controller.delete_custome
 router.put('/assigned/update', verifyToken,customer_controller.update_assigned);
 router.post('/customer/search', verifyToken,customer_controller.search_customer); // ລົງຖະບຽນລູກຄ້າ, ຂໍ້ມູນລູກຄ້າ, ຊ່ອງຄົ້ນຂໍ້ຫາລູກຄ້າ ໃຊ້ຮ່ວມກັນ
 
-// picture identified
-const identified_controller  = require("../loan_module/picture_identified/identified_controller");
-router.post('/identified/add', verifyToken,identified_controller.create_picture_identified);
-router.post('/identified/get', verifyToken,identified_controller.get_identified);
-router.put('/identified/update', verifyToken,identified_controller.update_identified);
 //guarantor customer
 const customer_guarantor_controller = require("../loan_module/customer_quarantor/customer_guarantor_controller");
 router.post('/customer/guarantor/add', verifyToken,customer_guarantor_controller.add_customer_guaantor);
 router.post('/customer/guarantor/id', verifyToken,customer_guarantor_controller.get_customer_guarantor_id);
+router.post('/customer/guarantor/get', verifyToken,customer_guarantor_controller.get_customer_guarantor);
 router.post('/customer/guarantor/search', verifyToken,customer_guarantor_controller.search_customer_guarantor);
 router.put('/customer/guarantor/update', verifyToken,customer_guarantor_controller.update_customer_guarantor);
 router.delete('/customer/guarantor/delete', verifyToken,customer_guarantor_controller.delete_customer_guarantor);

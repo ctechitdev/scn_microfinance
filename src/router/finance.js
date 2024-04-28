@@ -12,13 +12,17 @@ router.post('/cif/id', verifyToken,cif_controller.get_cif_ById);
 // router.put('/cif/update', verifyToken,cif_controller.update_cif);
 
 //account
-const account_controller = require("../finance_module/account/account_controller")
-router.post('/account/add', verifyToken,account_controller.create_account)
-router.post('/account/get', verifyToken,account_controller.get_account)
-router.post('/account/id', verifyToken,account_controller.get_account_Id) 
-router.post('/account/number', verifyToken,account_controller.get_account_number) 
-router.post('/account/firstname', verifyToken,account_controller.get_account_customer_firstname) 
+const account_controller = require("../finance_module/account/account_controller");
+router.post('/account/add', verifyToken,account_controller.create_account);
+router.post('/account/get', verifyToken,account_controller.get_account);
+router.post('/account/id', verifyToken,account_controller.get_account_Id) ;
+router.post('/account/number', verifyToken,account_controller.get_account_number) ;
+router.post('/account/firstname', verifyToken,account_controller.get_account_customer_firstname) ;
 
+// account type
+const account_type_controller = require("../finance_module/account_type/account_type_controller");
+router.post('/account/type/get', verifyToken,account_type_controller.get_account_type);
+router.post('/account/type/id', verifyToken,account_type_controller.get_account_type_id);
 
 function verifyToken(req, res, next) {
     // Get auth header value

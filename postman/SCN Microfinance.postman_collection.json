@@ -1605,6 +1605,36 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "read",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/loan/customer/guarantor/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"loan",
+												"customer",
+												"guarantor",
+												"get"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						},
@@ -2363,116 +2393,6 @@
 									"response": []
 								}
 							]
-						},
-						{
-							"name": "identified",
-							"item": [
-								{
-									"name": "add",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"customer_id\":\"1\",\r\n    \"picture_identified_name\":\"123555\",\r\n    \"picture_name_file\":\"bo.png\",\r\n    \"identified_register_date\":\"2024-03-12\",\r\n    \"identified_expire_date\":\"2028-03-12\",\r\n    \"picture_identified_type\":\"1\"\r\n        \r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{uat_dev}}/loan/identified/add",
-											"host": [
-												"{{uat_dev}}"
-											],
-											"path": [
-												"loan",
-												"identified",
-												"add"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "get",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [],
-										"url": {
-											"raw": "{{local_dev}}/loan/identified/get",
-											"host": [
-												"{{local_dev}}"
-											],
-											"path": [
-												"loan",
-												"identified",
-												"get"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "update",
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": [
-												{
-													"key": "token",
-													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
-													"type": "string"
-												}
-											]
-										},
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"picture_identified_id\":\"520\",\r\n    \"picture_identified_name\":\"2020202\",\r\n    \"picture_name_file\":\"bo.png\",\r\n    \"identified_register_date\":\"2024-03-12\",\r\n    \"identified_expire_date\":\"2028-03-12\",\r\n    \"picture_identified_type\":\"1\"\r\n        \r\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{local_dev}}/loan/identified/update",
-											"host": [
-												"{{local_dev}}"
-											],
-											"path": [
-												"loan",
-												"identified",
-												"update"
-											]
-										}
-									},
-									"response": []
-								}
-							]
 						}
 					]
 				},
@@ -2788,6 +2708,80 @@
 												"finance",
 												"account",
 												"number"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "account type",
+							"item": [
+								{
+									"name": "get",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{local_dev}}/finance/account/type/get",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"account",
+												"type",
+												"get"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRfaWQiOjEsImlhdCI6MTcxMDkxMjgwM30.qcziKLJYSTlB7wJcBAEyo22bv0HL3JTx0erONoqrWCU",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n     \"account_type_id\": \"1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{local_dev}}/finance/account/type/id",
+											"host": [
+												"{{local_dev}}"
+											],
+											"path": [
+												"finance",
+												"account",
+												"type",
+												"id"
 											]
 										}
 									},

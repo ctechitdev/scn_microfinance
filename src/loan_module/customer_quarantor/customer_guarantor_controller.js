@@ -145,6 +145,20 @@ const search_customer_guarantor = (request, response) => {
     }
   });
 };
+
+const get_customer_guarantor = (request, response) => {
+  jwt.verify(request.token, secretkey, (token_error, rstoken) => {
+    if (token_error) {
+      response.json({ resultCode: "token error " });
+    } else {
+      connected.query(queries.get_all, (error, results) => {
+        if (error) throw error;
+        response.json(results);
+      })
+    }
+  })
+}
+
 const get_customer_guarantor_id = (request, response) => {
   const { customer_guarantor_id } = request.body;
 
@@ -287,4 +301,5 @@ module.exports = {
   update_customer_guarantor,
   delete_customer_guarantor,
   add_customer_guaantor,
+  get_customer_guarantor
 };

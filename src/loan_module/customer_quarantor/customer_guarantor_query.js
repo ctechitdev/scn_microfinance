@@ -88,6 +88,11 @@ LEFT JOIN
   tbl_province ON tbl_customer_guarantor.province_id = tbl_province.province_id 
 WHERE 
   tbl_customer_guarantor.customer_guarantor_id = ?`;
+  const get_all = ` select customer_guarantor_id,full_name, tbl_customer.phone_number, guarantor_full_name,tbl_customer_guarantor.phone_number,tbl_customer_guarantor.village_namge, districts_name, province_name   
+   from tbl_customer_guarantor   
+  left join tbl_customer on tbl_customer_guarantor.customer_id = tbl_customer.customer_id  
+  left join tbl_districts on tbl_customer_guarantor.district_id = tbl_districts.districts_id  
+   left join tbl_province on tbl_customer_guarantor.province_id = tbl_province.province_id order by customer_guarantor_id DESC`;
 
 
 module.exports={
@@ -99,5 +104,6 @@ module.exports={
     get_name,
     delete_customer_guarantor,
     add_2,
-    get_customer_guarantor_id
+    get_customer_guarantor_id,
+    get_all
 };
